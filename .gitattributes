@@ -8,3 +8,5 @@
 *.7z binary
 *.wasm binary
 *.exe binary
+
+.github/workflows/*.lock.yml linguist-generated=true
