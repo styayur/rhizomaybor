@@ -68,6 +68,7 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           npm ci
           npm run build:project
+          npm run build:example
           cargo test --locked --manifest-path src-tauri/Cargo.toml
       - name: Build Windows desktop package
         run: npm run desktop:build
