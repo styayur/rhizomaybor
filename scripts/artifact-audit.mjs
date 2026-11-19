@@ -57,7 +57,14 @@ const secretPatterns = [
 ];
 
 for (const [label, pattern] of secretPatterns) {
-  if (pattern.test(text)) failures.push(`${label} found in artifact text`);
+  if (pattern.test(text)) {
+    // Report paths only: a failed gate must never print a potential secret.
+    const matches = files.filter((file) => {
+      pattern.lastIndex = 0;
+      return pattern.test(fs.readFileSync(file, 'latin1'));
+    }).map((file) => path.relative(outputDirectory, file).split(path.sep).join('/'));
+    failures.push(`${label} found in artifact text (${matches.slice(0, 5).join(', ')})`);
+  }
   pattern.lastIndex = 0;
 }
 

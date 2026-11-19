@@ -1,5 +1,6 @@
 # Dependencies
 /node_modules
+**/node_modules/
 /.pnp
 .pnp.js
 
@@ -38,3 +39,6 @@ src-tauri/target/
 src-tauri/gen/
 .codeforge/artifacts/
 
+
+# Rebuilt MIT Muya workspace outputs; source and declaration inventory are tracked.
+/vendor/muya-core/lib/generated/

@@ -1,0 +1,6 @@
+import type { VNode as MuyaSnabbdomVNode } from 'snabbdom';
+import { ISyntaxRenderOptions, StrongEmToken } from '../types';
+import { default as Renderer } from './index';
+export default function em(this: Renderer, { h, cursor, block, token, outerClass }: ISyntaxRenderOptions & {
+    token: StrongEmToken;
+}): MuyaSnabbdomVNode[];
