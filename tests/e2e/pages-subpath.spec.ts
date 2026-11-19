@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { test, expect } from '@playwright/test';
+import { checkEditorImages } from './image-checks';
 
 async function waitForServer(url: string) {
   for (let attempt = 0; attempt < 80; attempt += 1) {
@@ -28,6 +29,7 @@ test('GitHub Pages subpath build loads the garden and visual editor', async ({ b
     const scriptSources = await page.locator('script[src]').evaluateAll((scripts) => scripts.map((script) => (script as HTMLScriptElement).getAttribute('src') ?? ''));
     expect(scriptSources.length).toBeGreaterThan(0);
     expect(scriptSources.every((source) => source.startsWith('/rhizomaybor/'))).toBe(true);
+    await checkEditorImages(page, '/rhizomaybor', new URL(page.url()).origin);
     await page.screenshot({ path: testInfo.outputPath('pages-editor.png'), fullPage: true });
   } finally {
     await page.close();

@@ -36,6 +36,8 @@ export interface IMuyaOptions {
     };
     json?: TState[];
     markdown?: string;
+    imageRootUrl?: string;
+    imageDocumentUrl?: string;
 }
 
 export type Nullable<T> = T | null | undefined | void;

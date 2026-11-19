@@ -31,6 +31,12 @@ export default function loadImageAsync(
                 const imageText: HTMLElement | null = document.querySelector(`#${id}`);
                 const img = document.createElement('img');
                 img.src = url;
+                // A viewBox-only SVG inside shrink-to-fit inline wrappers can
+                // otherwise collapse to 0x0 under max-width:100% before a render.
+                if (!attrs.width && !attrs.height) {
+                    img.width = width;
+                    img.height = height;
+                }
                 if (attrs.alt)
                     img.alt = attrs.alt.replace(/[`*{}[\]()#+\-.!_>~:|<$]/g, '');
                 if (attrs.title)

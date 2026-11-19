@@ -53,6 +53,14 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Real browser workflows
         run: npm run test:e2e
+      - name: Retain fictional archive inputs and actual README verification receipts
+        uses: actions/upload-artifact@v7
+        with:
+          name: readme-7z-fixture-verification
+          path: |
+            test-results/**/*.7z
+            test-results/**/readme-verify-*.json
+          if-no-files-found: error
       - name: Upload Playwright report
         if: failure()
         uses: actions/upload-artifact@v7

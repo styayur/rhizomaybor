@@ -55,6 +55,7 @@ test('visual typing reaches source, applied project, autosave recovery and JSON 
   const editedSource = await sourceEditor.inputValue();
   await page.getByTestId('apply-content').click();
   await expect(page.getByText(/autosaved/)).toBeVisible({ timeout: 10_000 });
+  expect(await page.evaluate(() => localStorage.getItem('rhizomaybor.recovery.v1'))).toContain(marker);
   await page.reload();
   await expect(page.getByText(/Recovered unsaved edits/)).toBeVisible();
   await page.getByRole('button', { name: 'Restore', exact: true }).click();

@@ -13,9 +13,11 @@ let muyaRegistered = false;
 function MarkdownVisualEditor({
   value,
   onChange,
+  imageDocumentPath,
 }: {
   value: string;
   onChange: (value: string) => void;
+  imageDocumentPath: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const onChangeRef = useRef(onChange);
@@ -41,10 +43,15 @@ function MarkdownVisualEditor({
           module.Muya.use(module.LinkTools);
           muyaRegistered = true;
         }
+        const appBase = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/^\/+|\/+$/g, '');
+        const imageRootUrl = new URL(appBase ? `/${appBase}/` : '/', window.location.origin).href;
+        const imageDocumentUrl = new URL(imageDocumentPath.replace(/^\/+/, ''), imageRootUrl).href;
         instance = new module.Muya(containerRef.current, {
           markdown: initialValue.current,
           footnote: true,
           codeBlockLineNumbers: true,
+          imageRootUrl,
+          imageDocumentUrl,
         });
         instance.eventCenter.on('json-change', () => {
           // Muya emits after applying the pending operations to its JSON state.
@@ -175,12 +182,14 @@ export function ContentEditor({
   initialValue,
   onApply,
   onClose,
+  imageDocumentPath = '/',
 }: {
   title: string;
   format: ContentFormat;
   initialValue: string;
   onApply: (value: string) => void;
   onClose: () => void;
+  imageDocumentPath?: string;
 }) {
   const analysis = useMemo(() => analyzeHtml(format === 'html' ? initialValue : markdownToHtml(initialValue)), [format, initialValue]);
   const [mode, setMode] = useState<'visual' | 'source' | 'preview'>(
@@ -229,7 +238,7 @@ export function ContentEditor({
           )}
 
           {mode === 'visual' && (format === 'markdown' || format === 'mdx') && (
-            <MarkdownVisualEditor value={value} onChange={setValue} />
+            <MarkdownVisualEditor value={value} onChange={setValue} imageDocumentPath={imageDocumentPath} />
           )}
           {mode === 'visual' && format === 'html' && <HtmlVisualEditor value={value} onChange={setValue} />}
           {mode === 'source' && (
