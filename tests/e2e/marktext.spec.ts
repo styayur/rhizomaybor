@@ -48,7 +48,7 @@ test('visual typing reaches source, applied project, autosave recovery and JSON 
   await page.keyboard.press('End');
   const marker = ' Rhizo live editing verified';
   await page.keyboard.insertText(marker);
-  await expect(heading).toHaveText(`Live editable heading${marker}`, { useInnerText: true });
+  await expect(heading.locator('.mu-plain-text')).toHaveText(`Live editable heading${marker}`);
   await page.getByTestId('content-mode-source').click();
   const sourceEditor = page.getByTestId('content-source-editor');
   await expect(sourceEditor).toHaveValue(new RegExp(`# Live editable heading${marker}`));
