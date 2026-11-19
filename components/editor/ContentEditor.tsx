@@ -95,7 +95,7 @@ function MarkdownVisualEditor({
   }
 
   return (
-    <div className="relative min-h-[28rem] overflow-hidden rounded-xl border border-line bg-[#11151a]">
+    <div className="relative min-h-[28rem] overflow-hidden rounded-xl border border-line bg-surface">
       {status === 'loading' && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-bg/80 font-mono text-xs text-muted">
           Loading MarkText visual engine…

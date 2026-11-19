@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 import { build } from 'vite';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -13,6 +14,8 @@ for (const [relative, expected] of Object.entries(provenance.files)) {
 }
 const pkg = JSON.parse(fs.readFileSync(path.join(vendor, 'package.json'), 'utf8'));
 const dependencies = Object.keys(pkg.dependencies);
+const requireMuya = createRequire(path.join(vendor, 'package.json'));
+const prismComponents = path.dirname(requireMuya.resolve('prismjs/components/prism-yaml.js'));
 // Retain imports of reviewed installed renderers. The registry release bundled
 // old Mermaid/KaTeX, which cannot be fixed by changing a lockfile alone.
 const external = (id) => !id.endsWith('.css') && dependencies.some((name) => id === name || id.startsWith(`${name}/`));
@@ -20,6 +23,7 @@ const result = await build({
   configFile: false,
   root: vendor,
   base: './',
+  resolve: { alias: { '@muya-prism': prismComponents } },
   publicDir: false,
   // As in upstream's build, keep fonts as real files. Inlining megabytes of
   // binary font data into CSS also creates meaningless secret-pattern matches.

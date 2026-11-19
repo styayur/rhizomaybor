@@ -193,6 +193,15 @@
         "lib/types/utils/marked/extensions/superSubscript.d.ts": "d9a91912fd8485cf207d737d3fef47a9c23393f2e7317feb1338e69bee874085"
       },
       "reason": "Name a local ambient function then export it as default; identical callable parameter/return types, reversible spelling change for pinned parser anonymous-signature ambiguity."
+    },
+    {
+      "files": [
+        "src/utils/prism/loadLanguage.ts"
+      ],
+      "reason": "Resolve installed Prism components through a literal Vite glob and await Prism dependency load order; runtime computed sibling node_modules paths fail after workspace hoisting/bundling.",
+      "originalSha256": {
+        "src/utils/prism/loadLanguage.ts": "04f505576a6db04a5d22e0ac24f5925995decb83418e284f834c802c2f59bbad"
+      }
     }
   ],
   "manifestChanges": [
@@ -611,7 +620,7 @@
     "src/utils/marked/walkTokens.ts": "db11d347f20382b6d5bac535c1928dce801a86290bfff4af94a91102757bad1b",
     "src/utils/paste.ts": "20372f8bf26bbc5eb3d4e25a0aca074183221fd290619344146f926b4f38c2ac",
     "src/utils/prism/index.ts": "8c8c1fbf7d796da3944666fbc5c49a1682c2441a6723c3dab65552bbe694a09d",
-    "src/utils/prism/loadLanguage.ts": "04f505576a6db04a5d22e0ac24f5925995decb83418e284f834c802c2f59bbad",
+    "src/utils/prism/loadLanguage.ts": "3908f8d2c241ceaa59d2a9fed19ba4caeb19ceb62a78eb55e416e54f2427fc1c",
     "src/utils/prism/walkToken.ts": "1c7dbb57bb8e8cd89c5f8a1d1da1fa7ab86c0cc8cb1995493bd6ef413e727b85",
     "src/utils/search.ts": "47b21a12ef9264606ebbfea651938e466008eb8d6d9c479a93cce5090d4fa309",
     "src/utils/slug.ts": "4091fbf1708c1d80c04886d5286e34682062dbf3e8b1550e420657f3907dad93",
