@@ -12,7 +12,8 @@ hashes and emits ESM/CJS with installed JavaScript dependencies external, so
 Next bundles reviewed Mermaid 11.16.1 and KaTeX 0.18.2 instead of stale copies.
 No original registry renderer chunks are copied. Two source imports use the
 new KaTeX `contrib/mhchem` export, ensuring chemistry registers on the same ESM
-or CJS renderer instance. All other upstream source bytes are preserved.
+or CJS renderer instance. The Prism loader modification is described below;
+all other upstream source bytes are preserved.
 The pinned syntax parser rejects two valid declaration forms: inline type-import
 queries and anonymous default signatures with object return types. Thirty-five
 declaration files use equivalent named type imports or a named local default
@@ -25,6 +26,14 @@ strict checks and Markdown browser roundtrips validate this compatibility.
 Fonts remain separate binary files using Vite's native no-inline asset query,
 instead of increasing CSS by megabytes of base64. The artifact secret scan is
 unchanged and continues checking all output.
+
+The upstream Prism loader computed a dynamic path into a sibling node_modules
+directory, which does not survive npm workspace hoisting or bundling. A literal
+Vite glob resolves the installed Prism package at build time. Components load
+sequentially in Prism's documented dependency order, including C before C++.
+The editor inherits the application's scoped text/background palette. Browser
+checks require highlighted C++, readable contrast, and no uncaught page errors
+alongside the renderer and source roundtrip checks.
 
 `npm ci` rebuilds this workspace automatically. Product type checking remains
 strict; upstream source is checked separately with its own unchanged strict

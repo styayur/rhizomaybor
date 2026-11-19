@@ -8,17 +8,31 @@ async function editVisualSource(page: import('@playwright/test').Page, source: s
 }
 
 test('rebuilt Muya renders math, chemistry and Mermaid and preserves edited source', async ({ page }) => {
+  const pageErrors: string[] = [];
+  page.on('pageerror', error => pageErrors.push(error.message));
   await page.goto('/editor/');
   await page.getByTestId('left-content-tab').click();
   await page.getByTestId('document-doc-post-building-a-garden').click();
-  const source = '# Renderer compatibility\n\nInline $x^2 + \\frac{1}{2}$.\n\n$$\n\\ce{H2O}\n$$\n\n```mermaid\nflowchart LR\nA[Garden] --> B[Published]\n```\n';
+  const source = '# Renderer compatibility\n\nInline $x^2 + \\frac{1}{2}$.\n\n$$\n\\ce{H2O}\n$$\n\n```mermaid\nflowchart LR\nA[Garden] --> B[Published]\n```\n\n```cpp\nint main() { return 0; }\n```\n';
   await editVisualSource(page, source);
   await expect(page.locator('.marktext-editor .katex').first()).toBeVisible();
   await expect(page.locator('.mu-math-preview .katex')).toBeVisible();
   await expect(page.locator('.mu-diagram-preview svg')).toBeVisible();
   await expect(page.locator('.mu-diagram-preview')).toContainText('Published');
+  await expect(page.locator('.marktext-editor .language-cpp .token.keyword').first()).toBeVisible();
+  const contrast = await page.locator('.marktext-editor').evaluate(editor => {
+    const text = getComputedStyle(editor.querySelector('h1')!).color.match(/[\d.]+/g)!.map(Number);
+    const background = getComputedStyle(editor.parentElement!).backgroundColor.match(/[\d.]+/g)!.map(Number);
+    const alpha = text[3] ?? 1;
+    const foreground = text.slice(0, 3).map((value, i) => value * alpha + background[i] * (1 - alpha));
+    const luminance = (rgb: number[]) => rgb.slice(0, 3).map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0);
+    const a = luminance(foreground), b = luminance(background);
+    return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+  });
+  expect(contrast).toBeGreaterThanOrEqual(4.5);
   await page.getByTestId('content-mode-source').click();
   await expect(page.getByTestId('content-source-editor')).toHaveValue(source);
+  expect(pageErrors).toEqual([]);
 });
 
 test('untrusted Mermaid charts stay bounded and cannot pollute the editor realm', async ({ page }) => {

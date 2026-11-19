@@ -1,6 +1,12 @@
+/// <reference types="vite/client" />
 import components from 'prismjs/components.js';
 import getLoader from 'prismjs/dependencies';
-import { getDefer } from '../index';
+
+// Resolve the installed package at build time, independent of npm/pnpm hoisting.
+const componentImports = import.meta.glob([
+    '@muya-prism/prism-*.js',
+    '!@muya-prism/prism-*.min.js',
+]);
 
 interface ILangLoadStatus {
     lang: string;
@@ -71,39 +77,41 @@ function initLoadLanguage(Prism: any) {
         if (!Array.isArray(langs))
             langs = [langs];
 
-        const promises: Promise<ILangLoadStatus>[] = [];
+        const statuses: ILangLoadStatus[] = [];
         // The user might have loaded languages via some other way or used `prism.js` which already includes some
         // We don't need to validate the ids because `getLoader` will ignore invalid ones
         const loaded = [...loadedLanguages, ...Object.keys(Prism.languages)];
-        getLoader(components, langs, loaded).load(async (lang: string) => {
-            const defer = getDefer<ILangLoadStatus>();
-            promises.push(defer.promise);
+        // Prism guarantees getIds() is in dependency load order. Await each
+        // component before dependants use its grammar (e.g. C before C++).
+        const ids: string[] = getLoader(components, langs, loaded).getIds();
+        for (const lang of ids) {
             if (!(lang in components.languages)) {
-                defer.resolve({
+                statuses.push({
                     lang,
                     status: 'noexist',
                 });
             }
             else if (loadedLanguages.has(lang)) {
-                defer.resolve({
+                statuses.push({
                     lang,
                     status: 'cached',
                 });
             }
             else {
                 delete Prism.languages[lang];
-                await import(
-                    `../../../node_modules/prismjs/components/prism-${lang}.js`,
-                );
-                defer.resolve({
+                const load = Object.entries(componentImports).find(([name]) => name.endsWith(`/prism-${lang}.js`))?.[1];
+                if (!load)
+                    throw new Error(`Missing installed Prism component: ${lang}`);
+                await load();
+                statuses.push({
                     lang,
                     status: 'loaded',
                 });
                 loadedLanguages.add(lang);
             }
-        });
+        }
 
-        return Promise.all(promises);
+        return statuses;
     };
 }
 

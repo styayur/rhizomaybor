@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Muya inherits the application's active palette instead of its light defaults. */
+.marktext-editor {
+  --editor-color: rgb(var(--ink));
+  --editor-color-80: rgb(var(--ink) / 0.9);
+  --editor-color-50: rgb(var(--ink) / 0.65);
+  --editor-color-30: rgb(var(--ink) / 0.4);
+  --editor-color-10: rgb(var(--ink) / 0.15);
+  --editor-color-04: rgb(var(--ink) / 0.06);
+  --editor-bg-color: rgb(var(--surface));
+  --code-block-bg-color: rgb(var(--bg));
+  --table-border-color: rgb(var(--line));
+  --input-bg-color: rgb(var(--bg));
+  --button-font-color: rgb(var(--ink));
+  --button-bg-color: rgb(var(--surface));
+  --button-border: 1px solid rgb(var(--line));
+  --button-bg-color-hover: rgb(var(--line));
+  --button-border-hover: var(--button-border);
+  --float-bg-color: rgb(var(--surface));
+  --float-hover-color: rgb(var(--line));
+  --float-border-color: rgb(var(--line));
+  --icon-color: rgb(var(--muted));
+}
+
 /* ------------------------------------------------------------------ */
 /* Design tokens                                                       */
 /* Dark is the default and the soul of the garden. The .light class     */
