@@ -1,30 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import type { Muya } from '@muyajs/core';
 import type { ContentFormat } from '@/lib/project/schema';
 import { analyzeHtml } from '@/lib/project/html-policy';
 import { sanitizeBrowserHtml } from '@/lib/project/html-browser';
 import { markdownToHtml } from '@/lib/project/content';
 import { cn } from '@/lib/utils';
-
-type MuyaInstance = {
-  init(): void;
-  getMarkdown(): string;
-  flush(): void;
-  destroy(): void;
-  eventCenter: { on(event: string, listener: () => void): void };
-};
-
-type MuyaModule = {
-  Muya: {
-    new (element: HTMLElement, options: Record<string, unknown>): MuyaInstance;
-    use(plugin: unknown): void;
-  };
-  InlineFormatToolbar: unknown;
-  ParagraphFrontButton: unknown;
-  ParagraphFrontMenu: unknown;
-  LinkTools: unknown;
-};
 
 let muyaRegistered = false;
 
@@ -47,10 +29,10 @@ function MarkdownVisualEditor({
 
   useEffect(() => {
     let cancelled = false;
-    let instance: MuyaInstance | undefined;
+    let instance: Muya | undefined;
     (async () => {
       try {
-        const module = (await import('@muyajs/core')) as unknown as MuyaModule;
+        const module = await import('@muyajs/core');
         if (cancelled || !containerRef.current) return;
         if (!muyaRegistered) {
           module.Muya.use(module.InlineFormatToolbar);
@@ -65,7 +47,7 @@ function MarkdownVisualEditor({
           codeBlockLineNumbers: true,
         });
         instance.eventCenter.on('json-change', () => {
-          instance?.flush();
+          // Muya emits after applying the pending operations to its JSON state.
           onChangeRef.current(instance?.getMarkdown() ?? '');
         });
         instance.init();
