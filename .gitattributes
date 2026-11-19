@@ -8,3 +8,6 @@
 *.7z binary
 *.wasm binary
 *.exe binary
+
+# Preserve independently inventoried upstream Muya bytes, including font licenses.
+vendor/muya-core/** -text
