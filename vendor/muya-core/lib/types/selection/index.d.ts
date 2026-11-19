@@ -1,3 +1,5 @@
+import type { Nullable as MuyaTypeImport0 } from '../types';
+import type { ScrollPage as MuyaTypeImport1 } from '../block/scrollPage';
 import { default as Content } from '../block/base/content';
 import { default as Format } from '../block/base/format';
 import { ImageToken } from '../inlineRenderer/types';
@@ -15,7 +17,7 @@ declare class Selection {
     };
     static getCursorCoords(): DOMRect | null;
     static getSelectionStart(): Node | null;
-    get scrollPage(): import('../types').Nullable<import('../block/scrollPage').ScrollPage>;
+    get scrollPage(): MuyaTypeImport0<MuyaTypeImport1>;
     get isCollapsed(): boolean;
     get isSelectionInSameBlock(): boolean;
     get direction(): "none" | "forward" | "backward";

@@ -4,7 +4,7 @@ interface IScriptToken {
     text: string;
     marker: string;
 }
-export default function (): {
+declare function muyaDefaultExtension (): {
     extensions: {
         name: "superscript" | "subscript";
         level: "inline";
@@ -19,3 +19,5 @@ export default function (): {
     }[];
 };
 export {};
+
+export default muyaDefaultExtension;

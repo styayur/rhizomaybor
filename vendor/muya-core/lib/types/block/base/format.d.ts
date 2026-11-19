@@ -1,3 +1,22 @@
+import type { INodeOffset as MuyaTypeImport0 } from '../../selection/types';
+import type { BeginRuleToken as MuyaTypeImport1 } from '../../inlineRenderer/types';
+import type { ReferenceDefinitionToken as MuyaTypeImport2 } from '../../inlineRenderer/types';
+import type { BacklashToken as MuyaTypeImport3 } from '../../inlineRenderer/types';
+import type { StrongEmToken as MuyaTypeImport4 } from '../../inlineRenderer/types';
+import type { DelToken as MuyaTypeImport5 } from '../../inlineRenderer/types';
+import type { SuperSubScriptToken as MuyaTypeImport6 } from '../../inlineRenderer/types';
+import type { FootnoteIdentifierToken as MuyaTypeImport7 } from '../../inlineRenderer/types';
+import type { ImageToken as MuyaTypeImport8 } from '../../inlineRenderer/types';
+import type { LinkToken as MuyaTypeImport9 } from '../../inlineRenderer/types';
+import type { ReferenceLinkToken as MuyaTypeImport10 } from '../../inlineRenderer/types';
+import type { ReferenceImageToken as MuyaTypeImport11 } from '../../inlineRenderer/types';
+import type { HTMLEscapeToken as MuyaTypeImport12 } from '../../inlineRenderer/types';
+import type { AutoLinkExtensionToken as MuyaTypeImport13 } from '../../inlineRenderer/types';
+import type { AutoLinkToken as MuyaTypeImport14 } from '../../inlineRenderer/types';
+import type { HTMLTagToken as MuyaTypeImport15 } from '../../inlineRenderer/types';
+import type { SoftLineBreakToken as MuyaTypeImport16 } from '../../inlineRenderer/types';
+import type { HardLineBreakToken as MuyaTypeImport17 } from '../../inlineRenderer/types';
+import type { TailHeaderToken as MuyaTypeImport18 } from '../../inlineRenderer/types';
 import { CodeEmojiMathToken, TextToken, Token } from '../../inlineRenderer/types';
 import { ICursor } from '../../selection/types';
 import { IImageInfo } from '../../utils/image';
@@ -50,16 +69,16 @@ declare class Format extends Content {
         end: {
             offset: number;
         };
-        anchor: import('../../selection/types').INodeOffset;
-        focus: import('../../selection/types').INodeOffset;
+        anchor: MuyaTypeImport0;
+        focus: MuyaTypeImport0;
         isCollapsed: boolean;
         isSelectionInSameBlock: boolean;
         direction: string;
         type: string;
     } | null): {
-        formats: (import('../../inlineRenderer/types').BeginRuleToken | import('../../inlineRenderer/types').ReferenceDefinitionToken | TextToken | import('../../inlineRenderer/types').BacklashToken | import('../../inlineRenderer/types').StrongEmToken | CodeEmojiMathToken | import('../../inlineRenderer/types').DelToken | import('../../inlineRenderer/types').SuperSubScriptToken | import('../../inlineRenderer/types').FootnoteIdentifierToken | import('../../inlineRenderer/types').ImageToken | import('../../inlineRenderer/types').LinkToken | import('../../inlineRenderer/types').ReferenceLinkToken | import('../../inlineRenderer/types').ReferenceImageToken | import('../../inlineRenderer/types').HTMLEscapeToken | import('../../inlineRenderer/types').AutoLinkExtensionToken | import('../../inlineRenderer/types').AutoLinkToken | import('../../inlineRenderer/types').HTMLTagToken | import('../../inlineRenderer/types').SoftLineBreakToken | import('../../inlineRenderer/types').HardLineBreakToken | import('../../inlineRenderer/types').TailHeaderToken)[];
+        formats: (MuyaTypeImport1 | MuyaTypeImport2 | TextToken | MuyaTypeImport3 | MuyaTypeImport4 | CodeEmojiMathToken | MuyaTypeImport5 | MuyaTypeImport6 | MuyaTypeImport7 | MuyaTypeImport8 | MuyaTypeImport9 | MuyaTypeImport10 | MuyaTypeImport11 | MuyaTypeImport12 | MuyaTypeImport13 | MuyaTypeImport14 | MuyaTypeImport15 | MuyaTypeImport16 | MuyaTypeImport17 | MuyaTypeImport18)[];
         tokens: Token[];
-        neighbors: (import('../../inlineRenderer/types').BeginRuleToken | import('../../inlineRenderer/types').ReferenceDefinitionToken | TextToken | import('../../inlineRenderer/types').BacklashToken | import('../../inlineRenderer/types').StrongEmToken | CodeEmojiMathToken | import('../../inlineRenderer/types').DelToken | import('../../inlineRenderer/types').SuperSubScriptToken | import('../../inlineRenderer/types').FootnoteIdentifierToken | import('../../inlineRenderer/types').ImageToken | import('../../inlineRenderer/types').LinkToken | import('../../inlineRenderer/types').ReferenceLinkToken | import('../../inlineRenderer/types').ReferenceImageToken | import('../../inlineRenderer/types').HTMLEscapeToken | import('../../inlineRenderer/types').AutoLinkExtensionToken | import('../../inlineRenderer/types').AutoLinkToken | import('../../inlineRenderer/types').HTMLTagToken | import('../../inlineRenderer/types').SoftLineBreakToken | import('../../inlineRenderer/types').HardLineBreakToken | import('../../inlineRenderer/types').TailHeaderToken)[];
+        neighbors: (MuyaTypeImport1 | MuyaTypeImport2 | TextToken | MuyaTypeImport3 | MuyaTypeImport4 | CodeEmojiMathToken | MuyaTypeImport5 | MuyaTypeImport6 | MuyaTypeImport7 | MuyaTypeImport8 | MuyaTypeImport9 | MuyaTypeImport10 | MuyaTypeImport11 | MuyaTypeImport12 | MuyaTypeImport13 | MuyaTypeImport14 | MuyaTypeImport15 | MuyaTypeImport16 | MuyaTypeImport17 | MuyaTypeImport18)[];
     };
     format(type: string): void;
     private _addFormat;

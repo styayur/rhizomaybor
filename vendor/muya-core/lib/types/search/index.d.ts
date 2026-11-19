@@ -1,3 +1,5 @@
+import type { Nullable as MuyaTypeImport0 } from '../types';
+import type { ScrollPage as MuyaTypeImport1 } from '../block/scrollPage';
 import { Muya } from '../muya';
 import { IMatch } from './types';
 export declare class Search {
@@ -5,7 +7,7 @@ export declare class Search {
     value: string;
     matches: IMatch[];
     index: number;
-    get scrollPage(): import('../types').Nullable<import('../block/scrollPage').ScrollPage>;
+    get scrollPage(): MuyaTypeImport0<MuyaTypeImport1>;
     constructor(muya: Muya);
     private _updateMatches;
     private _innerReplace;

@@ -7,7 +7,7 @@ interface IEmojiToken {
 interface IOptions {
     isRenderEmoji?: boolean;
 }
-export default function (options?: IOptions): {
+declare function muyaDefaultExtension (options?: IOptions): {
     extensions: {
         name: string;
         level: "inline";
@@ -22,3 +22,5 @@ export default function (options?: IOptions): {
     }[];
 };
 export {};
+
+export default muyaDefaultExtension;

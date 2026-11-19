@@ -1,5 +1,7 @@
-export declare const VOID_HTML_TAGS: readonly import('html-tags').VoidHtmlTags[];
-export declare const HTML_TAGS: readonly import('html-tags').HtmlTags[];
+import type { VoidHtmlTags as MuyaTypeImport0 } from 'html-tags';
+import type { HtmlTags as MuyaTypeImport1 } from 'html-tags';
+export declare const VOID_HTML_TAGS: readonly MuyaTypeImport0[];
+export declare const HTML_TAGS: readonly MuyaTypeImport1[];
 export declare const BLOCK_DOM_PROPERTY = "__MUYA_BLOCK__";
 interface ITag {
     open: string;

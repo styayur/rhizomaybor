@@ -15,6 +15,184 @@
         "src/block/extra/math/mathPreview.ts": "3d8f15ad400bddf1b4b9fe8283d832144ea61add57e5fbd22d9cd77afc730a35",
         "src/inlineRenderer/renderer/inlineMath.ts": "c88fe8ce9a83bf5b6191cb483ff646893d8cac318d102ca14ea2cdc99cd6e606"
       }
+    },
+    {
+      "files": [
+        "lib/types/inlineRenderer/renderer/autoLink.d.ts",
+        "lib/types/inlineRenderer/renderer/autoLinkExtension.d.ts",
+        "lib/types/inlineRenderer/renderer/backlash.d.ts",
+        "lib/types/inlineRenderer/renderer/backlashInToken.d.ts",
+        "lib/types/inlineRenderer/renderer/codeFence.d.ts",
+        "lib/types/inlineRenderer/renderer/del.d.ts",
+        "lib/types/inlineRenderer/renderer/em.d.ts",
+        "lib/types/inlineRenderer/renderer/footnoteIdentifier.d.ts",
+        "lib/types/inlineRenderer/renderer/hardLineBreak.d.ts",
+        "lib/types/inlineRenderer/renderer/header.d.ts",
+        "lib/types/inlineRenderer/renderer/hr.d.ts",
+        "lib/types/inlineRenderer/renderer/htmlEscape.d.ts",
+        "lib/types/inlineRenderer/renderer/htmlRuby.d.ts",
+        "lib/types/inlineRenderer/renderer/inlineCode.d.ts",
+        "lib/types/inlineRenderer/renderer/inlineMath.d.ts",
+        "lib/types/inlineRenderer/renderer/multipleMath.d.ts",
+        "lib/types/inlineRenderer/renderer/referenceDefinition.d.ts",
+        "lib/types/inlineRenderer/renderer/referenceImage.d.ts",
+        "lib/types/inlineRenderer/renderer/softLineBreak.d.ts",
+        "lib/types/inlineRenderer/renderer/strong.d.ts",
+        "lib/types/inlineRenderer/renderer/superSubScript.d.ts",
+        "lib/types/inlineRenderer/renderer/text.d.ts"
+      ],
+      "originalSha256": {
+        "lib/types/inlineRenderer/renderer/autoLink.d.ts": "2bad83ea63bdbd5aad358ec9ec879258093d8428a53a4d56db5a78dde860ace4",
+        "lib/types/inlineRenderer/renderer/autoLinkExtension.d.ts": "d650e4e3ec09c23c7c1b61a09b68621ad5d1c61c671f757227497e9e981fec96",
+        "lib/types/inlineRenderer/renderer/backlash.d.ts": "2d213c6873a85ee647daf22f32c5286edfb71ab0759c4c5474db25e3e46c4656",
+        "lib/types/inlineRenderer/renderer/backlashInToken.d.ts": "4eba875eeaa2199010d4c093e735c0fba796b259d717bd29ef303e5a8affc62b",
+        "lib/types/inlineRenderer/renderer/codeFence.d.ts": "eb52b58ee3928f2295f116c1e04493cafb02518cb00fc10d1c693a81e4f381b6",
+        "lib/types/inlineRenderer/renderer/del.d.ts": "7f3d31375b0415f8dff65a2f06fb0a1ca7443242b504f9fffdad8a8add6df91d",
+        "lib/types/inlineRenderer/renderer/em.d.ts": "e596b58864f6020402d504df285ad6fa1e02f36ad2ff3fd1bb32c1121269372a",
+        "lib/types/inlineRenderer/renderer/footnoteIdentifier.d.ts": "b6046e67faa32b215bd9d035922ddfbdba06f716da11c7bc6a37b3946292930b",
+        "lib/types/inlineRenderer/renderer/hardLineBreak.d.ts": "2bdd04641cc65f8cd9b39859e006047627ee20be70ecc17c20c4b868da59c5d3",
+        "lib/types/inlineRenderer/renderer/header.d.ts": "9e22b41da33dd1eaeb33a90776139a995ae35c55265362b160e7388b8238e109",
+        "lib/types/inlineRenderer/renderer/hr.d.ts": "78e9afa967a3e42722338c7b3d1c054de6acd5a64d5b1b6a9739a132aebe0e47",
+        "lib/types/inlineRenderer/renderer/htmlEscape.d.ts": "d62acea02c47af4ef5fdcc258a98428f57152e6df66422d310205808ce9443a5",
+        "lib/types/inlineRenderer/renderer/htmlRuby.d.ts": "1787ba0ee5196efdd026b5be7b9dea767db48255a126b6414aaa812b79b3a937",
+        "lib/types/inlineRenderer/renderer/inlineCode.d.ts": "1ad572c85f05f84de1dbe771849c13f85125ae7607c8064405038cf31161a32a",
+        "lib/types/inlineRenderer/renderer/inlineMath.d.ts": "4cc1a6fd908be12063ae029313310ca6a6a8746337ffd419fa22a8764ad71545",
+        "lib/types/inlineRenderer/renderer/multipleMath.d.ts": "f61b5bef927cf6d12a96de965b300a6f0d615227f8e4ea02d749c2d0a80044f4",
+        "lib/types/inlineRenderer/renderer/referenceDefinition.d.ts": "46999ca449300055a4386ccb5d3153c170fc7dc07faae59bbdb4e5067f98f599",
+        "lib/types/inlineRenderer/renderer/referenceImage.d.ts": "6897cc46c7def186c428f851c0cae39192718b15370a5557129fd14f9edaa479",
+        "lib/types/inlineRenderer/renderer/softLineBreak.d.ts": "ff0d08cd523316c5f50ad65434b8476d3da8a2733cd4c0797833b4c2e14bb6f6",
+        "lib/types/inlineRenderer/renderer/strong.d.ts": "1494b979f9ef127d98ddb77d53a3d482b4f2c845fb379d57611a2cdb0f2c3c0e",
+        "lib/types/inlineRenderer/renderer/superSubScript.d.ts": "d85819042bfd1012e50bb6cf6a12c86332f4cb025ecaa1a6f825a3b04f77923a",
+        "lib/types/inlineRenderer/renderer/text.d.ts": "229952bca02702fc31b669e3ce8e79f620c4e24cd2eb53596e6fe17d60998754"
+      },
+      "reason": "Equivalent named VNode type imports replace inline import(...).VNode return-array types rejected by CodeForge pinned tree-sitter-typescript0.23.2; no parameter/return types or runtime source changed."
+    },
+    {
+      "files": [
+        "lib/types/utils/marked/compatibleTaskList.d.ts",
+        "lib/types/block/base/format.d.ts",
+        "lib/types/block/content/codeBlockContent/index.d.ts",
+        "lib/types/block/content/setextHeadingContent/index.d.ts",
+        "lib/types/block/content/thematicBreakContent/index.d.ts",
+        "lib/types/config/index.d.ts",
+        "lib/types/inlineRenderer/index.d.ts",
+        "lib/types/search/index.d.ts",
+        "lib/types/selection/index.d.ts",
+        "lib/types/utils/search.d.ts"
+      ],
+      "originalSha256": {
+        "lib/types/utils/marked/compatibleTaskList.d.ts": "87dc1a90024109d824f693d3957b0f641d03840cede2ebfc662bf0baae519913",
+        "lib/types/block/base/format.d.ts": "4d24f69a56e27a5ac219cc745a25503795ecb2c05cfd149f21bc9fd3cf467eb9",
+        "lib/types/block/content/codeBlockContent/index.d.ts": "753f1bdf77dd77dd12cffd3b939845ec2efe30977f80ad0a48c13988618fcc2f",
+        "lib/types/block/content/setextHeadingContent/index.d.ts": "c0b51bf1153c32b542c68f733a58906c05e02e3e998e0344ff60c7f5febad5f3",
+        "lib/types/block/content/thematicBreakContent/index.d.ts": "804408e785418e86eabd73a6d55add20fb44fa5d16c8dd8a43815f0f1f4a3456",
+        "lib/types/config/index.d.ts": "7a16483f4dd47a1df2673ae959d3e6744e7134e98e807b6dd727bc9cfc9811bc",
+        "lib/types/inlineRenderer/index.d.ts": "aa4a1ca8423040a11286c6900db76d0218525aabee21732be95bafdad4259f62",
+        "lib/types/search/index.d.ts": "bbe9aee032a794641b79ca87f820e427f80ba41f69ad91a97d95f7b0ae276f01",
+        "lib/types/selection/index.d.ts": "ea330bb32b7023f6a5475909417acfd5d08577788a09c540ffee7b93a3f305ef",
+        "lib/types/utils/search.d.ts": "a2b119c8b15b9f9ddf229ea8983116a006894bed59e2ae17894264ce285b3350"
+      },
+      "reason": "Lossless type-import aliases replace inline import(...) queries unsupported by pinned parser; inverse alias substitution byte-equals original declarations. No parameter/return type or runtime source change.",
+      "aliasProof": {
+        "lib/types/utils/marked/compatibleTaskList.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import(\"marked\").Tokens"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/block/base/format.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../../selection/types').INodeOffset",
+            "MuyaTypeImport1": "import('../../inlineRenderer/types').BeginRuleToken",
+            "MuyaTypeImport2": "import('../../inlineRenderer/types').ReferenceDefinitionToken",
+            "MuyaTypeImport3": "import('../../inlineRenderer/types').BacklashToken",
+            "MuyaTypeImport4": "import('../../inlineRenderer/types').StrongEmToken",
+            "MuyaTypeImport5": "import('../../inlineRenderer/types').DelToken",
+            "MuyaTypeImport6": "import('../../inlineRenderer/types').SuperSubScriptToken",
+            "MuyaTypeImport7": "import('../../inlineRenderer/types').FootnoteIdentifierToken",
+            "MuyaTypeImport8": "import('../../inlineRenderer/types').ImageToken",
+            "MuyaTypeImport9": "import('../../inlineRenderer/types').LinkToken",
+            "MuyaTypeImport10": "import('../../inlineRenderer/types').ReferenceLinkToken",
+            "MuyaTypeImport11": "import('../../inlineRenderer/types').ReferenceImageToken",
+            "MuyaTypeImport12": "import('../../inlineRenderer/types').HTMLEscapeToken",
+            "MuyaTypeImport13": "import('../../inlineRenderer/types').AutoLinkExtensionToken",
+            "MuyaTypeImport14": "import('../../inlineRenderer/types').AutoLinkToken",
+            "MuyaTypeImport15": "import('../../inlineRenderer/types').HTMLTagToken",
+            "MuyaTypeImport16": "import('../../inlineRenderer/types').SoftLineBreakToken",
+            "MuyaTypeImport17": "import('../../inlineRenderer/types').HardLineBreakToken",
+            "MuyaTypeImport18": "import('../../inlineRenderer/types').TailHeaderToken"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/block/content/codeBlockContent/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../../../types').Nullable",
+            "MuyaTypeImport1": "import('../../commonMark/codeBlock').default",
+            "MuyaTypeImport2": "import('../../base/parent').default"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/block/content/setextHeadingContent/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../../../types').Nullable",
+            "MuyaTypeImport1": "import('../../base/parent').default"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/block/content/thematicBreakContent/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../../../types').Nullable",
+            "MuyaTypeImport1": "import('../../base/parent').default"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/config/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('html-tags').VoidHtmlTags",
+            "MuyaTypeImport1": "import('html-tags').HtmlTags"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/inlineRenderer/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('./types').Token"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/search/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../types').Nullable",
+            "MuyaTypeImport1": "import('../block/scrollPage').ScrollPage"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/selection/index.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('../types').Nullable",
+            "MuyaTypeImport1": "import('../block/scrollPage').ScrollPage"
+          },
+          "inverseEqualsOriginal": true
+        },
+        "lib/types/utils/search.d.ts": {
+          "aliases": {
+            "MuyaTypeImport0": "import('execall').Match"
+          },
+          "inverseEqualsOriginal": true
+        }
+      }
+    },
+    {
+      "files": [
+        "lib/types/utils/marked/extensions/emoji.d.ts",
+        "lib/types/utils/marked/extensions/math.d.ts",
+        "lib/types/utils/marked/extensions/superSubscript.d.ts"
+      ],
+      "originalSha256": {
+        "lib/types/utils/marked/extensions/emoji.d.ts": "95baf5fa3f58d9740922d36364148960aded9aefea72c47e013a583af7a40f8c",
+        "lib/types/utils/marked/extensions/math.d.ts": "10bcb3dac519db6436cf70535f6e7929d6052ae84a5b198f8b3325448315a412",
+        "lib/types/utils/marked/extensions/superSubscript.d.ts": "d9a91912fd8485cf207d737d3fef47a9c23393f2e7317feb1338e69bee874085"
+      },
+      "reason": "Name a local ambient function then export it as default; identical callable parameter/return types, reversible spelling change for pinned parser anonymous-signature ambiguity."
     }
   ],
   "manifestChanges": [
@@ -442,20 +620,20 @@
     "src/utils/types.ts": "bbdf8425499e50514c078246cdb627de8df593d7b7315231ea9c9e09489857c4",
     "src/utils/url.ts": "860691fd77776334ffa49495f5318936aa663b4dcd33450c931fb7a31ed11a4a",
     "tsconfig.json": "08c5bf5717d140fe0ba230b2fad89d517ff5512d6bcb3e05e154580223b1088f",
-    "lib/types/inlineRenderer/renderer/autoLink.d.ts": "2bad83ea63bdbd5aad358ec9ec879258093d8428a53a4d56db5a78dde860ace4",
-    "lib/types/inlineRenderer/renderer/autoLinkExtension.d.ts": "d650e4e3ec09c23c7c1b61a09b68621ad5d1c61c671f757227497e9e981fec96",
+    "lib/types/inlineRenderer/renderer/autoLink.d.ts": "23a89ba95a033c9c04cc3dbdb988eb9ba28a17cf22097a2ca3cf821df27dcb25",
+    "lib/types/inlineRenderer/renderer/autoLinkExtension.d.ts": "cd3fa8968e1849f496dea3b63a159090b8ad74d8f735c297d592c7ff55d0eede",
     "lib/types/block/base/__tests__/autoPair.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/backlash.d.ts": "2d213c6873a85ee647daf22f32c5286edfb71ab0759c4c5474db25e3e46c4656",
-    "lib/types/inlineRenderer/renderer/backlashInToken.d.ts": "4eba875eeaa2199010d4c093e735c0fba796b259d717bd29ef303e5a8affc62b",
+    "lib/types/inlineRenderer/renderer/backlash.d.ts": "6445fedd3b8c771f4ffe500f4ddec606d95f9f07a55c5f675fc1f6dcd0f59397",
+    "lib/types/inlineRenderer/renderer/backlashInToken.d.ts": "205923438c2d564cd56c332e395fb1bc081e98150419fa09a0856e4ec1bb1c33",
     "lib/types/state/__tests__/blockSerialization.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/ui/paragraphFrontMenu/__tests__/canTurnIntoMenu.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/block/gfm/table/cell.d.ts": "3a57261010cfa553a0411d235ada33c1eac56d49f1eb235794ebb41d709b4d06",
     "lib/types/block/commonMark/codeBlock/code.d.ts": "7d023f076835d758d29cc645542a43752313547d5e28c1f35650eb23d8c6577c",
     "lib/types/utils/codeBlockLineNumbers.d.ts": "69b4401d72f66e9d38638eb6c0f23914923133cf501eac6a29534c21484aa83a",
     "lib/types/utils/__tests__/codeBlockLineNumbers.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/codeFence.d.ts": "eb52b58ee3928f2295f116c1e04493cafb02518cb00fc10d1c693a81e4f381b6",
+    "lib/types/inlineRenderer/renderer/codeFence.d.ts": "513d77c6b39f59595314c35c650200bb332f600a689611322ec71f61c942199d",
     "lib/types/inlineRenderer/__tests__/commonmarkExamples.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/utils/marked/compatibleTaskList.d.ts": "87dc1a90024109d824f693d3957b0f641d03840cede2ebfc662bf0baae519913",
+    "lib/types/utils/marked/compatibleTaskList.d.ts": "55b5640b33b540d7b67759bc71631f12e3c4319f4636334265395a553ca5f74c",
     "lib/types/ui/imageToolbar/config.d.ts": "b41353b9c6a8507745a47c947266e19f4fc8a5e500f837323c7d4379955da866",
     "lib/types/ui/inlineFormatToolbar/config.d.ts": "c03949cee7fe72f4a74e73581b14391c5c901217e52f688669fe6175c2fb4ddb",
     "lib/types/ui/linkTools/config.d.ts": "58cd35acffa78f89d9155279021d3acf570d755ae3b17d49005826d31ebeca25",
@@ -469,18 +647,18 @@
     "lib/types/block/mixins/containerQueryBlock.d.ts": "3c283ff4206351dda5e1d43cc84c9895e05787c8f19466fa366e8fb9e924fe73",
     "lib/types/block/base/content.d.ts": "ab4db882c8ddc43fa4eb67287a6eb3c6186fac2a2ee2f43d6425b41ea6bcb612",
     "lib/types/clipboard/__tests__/copyHandler.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/del.d.ts": "7f3d31375b0415f8dff65a2f06fb0a1ca7443242b504f9fffdad8a8add6df91d",
+    "lib/types/inlineRenderer/renderer/del.d.ts": "69f4b3b82413ec5cb2ccf002615280b2d2fe90059305f3648c62bef5e36f4dfb",
     "lib/types/inlineRenderer/renderer/delEmStrongFactory.d.ts": "ac6c419b12ff1ca40ced83b958a3c2a9960fd156c8b2f21053c6d15f0a91d822",
     "lib/types/block/extra/diagram/diagramContainer.d.ts": "5ac4dc5de516b822ba18a2a4bc4838e25f0a8ccd260fa5a5e42101170f00a840",
     "lib/types/block/extra/diagram/diagramPreview.d.ts": "730f5b70c469f046b6bf78fe215f63d5430b6f99a8cde3888520fd65e1b4fb54",
     "lib/types/selection/dom.d.ts": "e1bca1e1de53cc62299ca455c76a688f0f1966e0c74f2a59af07cfa99210e236",
     "lib/types/utils/dom.d.ts": "8b17fab7632e0dc99f4692cd58d30dd27cc41e002aadfb1596a4a62fb862553a",
     "lib/types/utils/__tests__/dompurifyXss.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/em.d.ts": "e596b58864f6020402d504df285ad6fa1e02f36ad2ff3fd1bb32c1121269372a",
+    "lib/types/inlineRenderer/renderer/em.d.ts": "51ce1d73d4fddb5afb589d4c02ea1f8e4f300190fb3c8aaef3378f2b428acb9e",
     "lib/types/inlineRenderer/renderer/emoji.d.ts": "b68d6573469f27aff6e44f790c66aa38d3de86cfa0215bbcec707d929a5341bd",
     "lib/types/ui/emojiSelector/emoji.d.ts": "3104de667600ec3f24b1aa86cb64d842cc8c9de37b147934798261a38d1f9cfe",
     "lib/types/utils/emoji.d.ts": "8ada2408ca83761a47368f23daa404d25d1062bbd0e2fc913bea6a857b79d141",
-    "lib/types/utils/marked/extensions/emoji.d.ts": "95baf5fa3f58d9740922d36364148960aded9aefea72c47e013a583af7a40f8c",
+    "lib/types/utils/marked/extensions/emoji.d.ts": "51d6a19f49c34772fc07876cc8a5eb827cc4c0467057969d4d1d9fe4f9819e97",
     "lib/types/config/emojis.d.ts": "9311ed517226cf875f5c876f5443b1ff95a3739029b7c34e9cfb0daf9e8256d8",
     "lib/types/config/emptyStates.d.ts": "890628946e3002d283a0575fd491d75d2a1f4fffe334d5c1fd709d81bc010495",
     "lib/types/locales/en.d.ts": "e4002c02e1e93604ce184f39b56f0de91f130aef7fd5affce2b98bc3af3e7236",
@@ -496,9 +674,9 @@
     "lib/types/block/extra/footnote/__tests__/footnote.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/utils/marked/extensions/__tests__/footnote.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/state/__tests__/footnoteHtml.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/footnoteIdentifier.d.ts": "b6046e67faa32b215bd9d035922ddfbdba06f716da11c7bc6a37b3946292930b",
+    "lib/types/inlineRenderer/renderer/footnoteIdentifier.d.ts": "32640b789fede153637760c63fc14a553c3d30c39fbedcf9f29ae01f45d22128",
     "lib/types/ui/footnoteTool/__tests__/footnoteTool.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/block/base/format.d.ts": "4d24f69a56e27a5ac219cc745a25503795ecb2c05cfd149f21bc9fd3cf467eb9",
+    "lib/types/block/base/format.d.ts": "615b94c1c93cf16a4ee424bd035c8e38737ea22f2a76c127f6c99e763165dc20",
     "lib/types/block/base/__tests__/formatCursor.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/block/base/__tests__/formatUnlink.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/utils/marked/frontMatter.d.ts": "6fdf200ae935e124afb439aadedf147ba3bdbc03001d384bc5ef38adb56238bb",
@@ -511,16 +689,16 @@
     "lib/types/utils/__tests__/getPageTitle.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/state/getTOC.d.ts": "da2c3154b85a2424789e1a9892e8264484185eff85400e9dc51f781ea2470705",
     "lib/types/__tests__/getTOC.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/hardLineBreak.d.ts": "2bdd04641cc65f8cd9b39859e006047627ee20be70ecc17c20c4b868da59c5d3",
-    "lib/types/inlineRenderer/renderer/header.d.ts": "9e22b41da33dd1eaeb33a90776139a995ae35c55265362b160e7388b8238e109",
+    "lib/types/inlineRenderer/renderer/hardLineBreak.d.ts": "5e7e2f5fffca732c673d744cf814b5b1105b148580d59105a08407e80221de38",
+    "lib/types/inlineRenderer/renderer/header.d.ts": "a0e86ae147fc0948504ddec325cbb428c44f7802915b1dc2d7d3703c4c22232b",
     "lib/types/inlineRenderer/renderer/highlight.d.ts": "bae34f6028817a5141e8fff247a280b12345f6de66f5f1f4a0ed27b92ede6a06",
     "lib/types/utils/highlightHTML.d.ts": "f33bfab7901774ef1170cfc671df67524b4d0bf26dce91e199f5165feb541bf8",
     "lib/types/ui/paragraphQuickInsertMenu/__tests__/hint.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/hr.d.ts": "78e9afa967a3e42722338c7b3d1c054de6acd5a64d5b1b6a9739a132aebe0e47",
+    "lib/types/inlineRenderer/renderer/hr.d.ts": "d7a825fe76b97aea755c2261c47f5c820cf49adf402595a21564b64b70e42c74",
     "lib/types/block/commonMark/html/htmlContainer.d.ts": "4c90d0f9bfac57a7b28ee65142078b32ad2f3c2a7d0c12c67cb2619a0760f899",
-    "lib/types/inlineRenderer/renderer/htmlEscape.d.ts": "d62acea02c47af4ef5fdcc258a98428f57152e6df66422d310205808ce9443a5",
+    "lib/types/inlineRenderer/renderer/htmlEscape.d.ts": "d0608d752c047754f90d4fbcc622d14965343fd541b5485922605c850345c5b3",
     "lib/types/block/commonMark/html/htmlPreview.d.ts": "ec48a863b573caabab5a7660684c4f3334c27296e001e988f77dccfaaaf996e5",
-    "lib/types/inlineRenderer/renderer/htmlRuby.d.ts": "1787ba0ee5196efdd026b5be7b9dea767db48255a126b6414aaa812b79b3a937",
+    "lib/types/inlineRenderer/renderer/htmlRuby.d.ts": "f2cebe9d6b04a265f397ea7676fede530cd6b2e16e009bd8bd222b7ea34319bc",
     "lib/types/inlineRenderer/renderer/htmlTag.d.ts": "0e24607a669165ed7a8ef48c4ad0cab30ecaa5397a3d76fb3db21154aff99c38",
     "lib/types/state/htmlToMarkdown.d.ts": "cc43f4dfdfba2d59a64a9588ea0860b191e7ec2bd63caf7d2824e39841311042",
     "lib/types/inlineRenderer/renderer/image.d.ts": "5ea0e96b37edd77bc0d74a163956396a1fe7d8cbf25a3731d88a0b2690b1d58e",
@@ -539,12 +717,12 @@
     "lib/types/block/commonMark/setextHeading/index.d.ts": "b8983ebfe69a4c0b966bb432843078960bb8adad9243c491f0b23d0d7db7634b",
     "lib/types/block/commonMark/thematicBreak/index.d.ts": "33b6264681b351442fdaef70b3a09e8c3f40f3fabc15d4145096ed1ff3792d21",
     "lib/types/block/content/atxHeadingContent/index.d.ts": "dc65f86e4d0c02203f6ac1485ddb4fa17fda5472659a947797ac05f1de80281e",
-    "lib/types/block/content/codeBlockContent/index.d.ts": "753f1bdf77dd77dd12cffd3b939845ec2efe30977f80ad0a48c13988618fcc2f",
+    "lib/types/block/content/codeBlockContent/index.d.ts": "fbe935031fd229c8d5c4c0bc40a60113afc4e15c17893fcad55324bad5fc0c2e",
     "lib/types/block/content/langInputContent/index.d.ts": "aa6341df2afc5d08eef22532b077d48f22eb998ff73a74e6abc81cd17b2c561d",
     "lib/types/block/content/paragraphContent/index.d.ts": "561bf043c502564ccf0904dedc386eed378c18dcf86e288a3fa29bce17d50452",
-    "lib/types/block/content/setextHeadingContent/index.d.ts": "c0b51bf1153c32b542c68f733a58906c05e02e3e998e0344ff60c7f5febad5f3",
+    "lib/types/block/content/setextHeadingContent/index.d.ts": "85f5a5b9254ed933cb3de690123551b51babb838184b2e2cdb8a55d17cfa1073",
     "lib/types/block/content/tableCell/index.d.ts": "6683a08c107da24fe0229ce8d1e7aece45001092f75f6f73006627b846732fde",
-    "lib/types/block/content/thematicBreakContent/index.d.ts": "804408e785418e86eabd73a6d55add20fb44fa5d16c8dd8a43815f0f1f4a3456",
+    "lib/types/block/content/thematicBreakContent/index.d.ts": "ce2c8312bc65ff0fe4133dfaf5512e9eb31411e8ae01239c688d0f56dd8b9cd4",
     "lib/types/block/extra/diagram/index.d.ts": "903637bf7f11a20395c4b3fc78db477c5c5229d5d19ac29d96bdcccfdb51553e",
     "lib/types/block/extra/footnote/index.d.ts": "97b56b097880e25fc00d598255f867f2e8d6e529d3450bab11e9f65246c32d50",
     "lib/types/block/extra/frontmatter/index.d.ts": "7ac6f14e4f91b46c595b1457b18ee433d729c86cfc4413d8a7d1230e942aa48e",
@@ -556,17 +734,17 @@
     "lib/types/block/index.d.ts": "3f860ffda1be05b9954665cfd98c4caa94011967b898589c6e2d2f70a25a7eec",
     "lib/types/block/scrollPage/index.d.ts": "e7d8841b543ce1643866811fdc97fd3aee5230eca11f9d5be1ab0572c61e25ad",
     "lib/types/clipboard/index.d.ts": "a7a7abc3ee4fa47ced55c986930d82f731979878ca42848e86f2a5ab1f3e05a5",
-    "lib/types/config/index.d.ts": "7a16483f4dd47a1df2673ae959d3e6744e7134e98e807b6dd727bc9cfc9811bc",
+    "lib/types/config/index.d.ts": "d2df97e1b86b0c5552aef85063a9cd50127006380827ec751e78ada7d04297dc",
     "lib/types/editor/index.d.ts": "3de24c753b4099005a012415a407ced33352aedf8c14c65d4345c502a4de5ed3",
     "lib/types/event/index.d.ts": "904805b2ba2c08dc123b8190f4dd240b27301e8899afaed9fcc96e70822b7fbc",
     "lib/types/history/index.d.ts": "17979389d3c9f8e34834169969490055baf944ff74d643f64f196232b5f8487f",
     "lib/types/i18n/index.d.ts": "fb4243a7ec25ebb02ade97230d8135ecfe8956332c53912df00f899ab55f5273",
     "lib/types/index.d.ts": "f2f746ed79187e844c331af0a971090a808bc8b4199cb7ea511b8e849a372079",
-    "lib/types/inlineRenderer/index.d.ts": "aa4a1ca8423040a11286c6900db76d0218525aabee21732be95bafdad4259f62",
+    "lib/types/inlineRenderer/index.d.ts": "148675e48add0f6986d75c1b92ef37dabc4c62468ba87accc98c1b1dbc8ae3b7",
     "lib/types/inlineRenderer/renderer/index.d.ts": "a8b466b862e6adadae8be2f6d39509ad7f2b49f59c4a6e8694b95d4f05f08e98",
     "lib/types/locales/index.d.ts": "0318f9ba57e7f145746ba78c06f231aad37c014e476fe9fb76d72ba237f736be",
-    "lib/types/search/index.d.ts": "bbe9aee032a794641b79ca87f820e427f80ba41f69ad91a97d95f7b0ae276f01",
-    "lib/types/selection/index.d.ts": "ea330bb32b7023f6a5475909417acfd5d08577788a09c540ffee7b93a3f305ef",
+    "lib/types/search/index.d.ts": "f8dff6b7afd69c1d723fa48dca37555a3d0f5db0cfe0aa38dcbe10e7b95cdd55",
+    "lib/types/selection/index.d.ts": "5457b592cb1e12e81a4b5f930c507ec823930040ec41a09f81e425c1c8e2eac9",
     "lib/types/state/index.d.ts": "6a5f06d6923c414212d64cbd10635031ae5d20edc69dac71da63c0ac4548ab72",
     "lib/types/ui/baseFloat/index.d.ts": "2bcd4098c260af579cbc27a4089f5dce365ab034505c084e99834565497ca099",
     "lib/types/ui/baseScrollFloat/index.d.ts": "531e688c1e9932f4cd6b980da731390289b0bf2d66217638f36332b12e237d27",
@@ -592,8 +770,8 @@
     "lib/types/utils/index.d.ts": "4d25ef0e61a880121f9efe723d626a26ff95173c83114b66dc7b8b80a2cff7c2",
     "lib/types/utils/marked/index.d.ts": "bc60d4b61bd4ed919e1488a1daee1206515c37a43ecfb54e6b4b0b3abc63b7a2",
     "lib/types/utils/turndownService/index.d.ts": "727f7515ad5e27146290078cb3fe5a3e1e9e1294265ff9995051b35e12f8c1d6",
-    "lib/types/inlineRenderer/renderer/inlineCode.d.ts": "1ad572c85f05f84de1dbe771849c13f85125ae7607c8064405038cf31161a32a",
-    "lib/types/inlineRenderer/renderer/inlineMath.d.ts": "4cc1a6fd908be12063ae029313310ca6a6a8746337ffd419fa22a8764ad71545",
+    "lib/types/inlineRenderer/renderer/inlineCode.d.ts": "7f4487f685b80560e09a76e3d01cc7aa7fa14cc2e9135a94c2f19fcd851c68b7",
+    "lib/types/inlineRenderer/renderer/inlineMath.d.ts": "4346cc881180b7b090bfd5d405492219ddaf95902b40ff1ce7dba5850ad51050",
     "lib/types/locales/ja.d.ts": "15603d2218de038bdb0ff30cb271927bc6781a1237604cd79463bf0959d57428",
     "lib/types/block/mixins/leafQueryBlock.d.ts": "540e8d7d2e0dd2f39360e032e1bee1dcc7b53bcb79fa891e12445c5078a12ec8",
     "lib/types/utils/marked/lexBlock.d.ts": "68da638c445a182b1dbc78892aa25150055bd43bd50981b985e5c1abcda69bf1",
@@ -613,18 +791,18 @@
     "lib/types/state/markdownToHtml.d.ts": "91cdb9edd31dfe6353115d222e3e78d3260e91d2c2ca5d37e35999f425886039",
     "lib/types/state/markdownToState.d.ts": "47c22d6f1f1a7a3185bb99f745e6091f457073006b63424a70cca78437842b35",
     "lib/types/state/__tests__/markdownToState.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/utils/marked/extensions/math.d.ts": "10bcb3dac519db6436cf70535f6e7929d6052ae84a5b198f8b3325448315a412",
+    "lib/types/utils/marked/extensions/math.d.ts": "0b5f8dd65cd76ff7074b1308a919c852dec8d9f55e6d1569d280b729446aab72",
     "lib/types/block/extra/math/mathContainer.d.ts": "4df3b82ffcd387a4b0e0571c3d25ab754402610c02f3799069a641db1d95e0d2",
     "lib/types/block/extra/math/mathPreview.d.ts": "075596ceb04a49f842228ce4ec4c0ab46113e119f319866183b0c8949a3ac270",
     "lib/types/clipboard/mergePasteIntoHeading.d.ts": "bb4c5ab629c78a2ec7f6d088482c74f6090fa31fec7b2d81888994520d35256c",
     "lib/types/clipboard/__tests__/mergePasteIntoHeading.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/multipleMath.d.ts": "f61b5bef927cf6d12a96de965b300a6f0d615227f8e4ea02d749c2d0a80044f4",
+    "lib/types/inlineRenderer/renderer/multipleMath.d.ts": "24b34719f094ac3eb11c03d4304dbe19320023aaa93fa60310c200a7ce79a72c",
     "lib/types/muya.d.ts": "385b7b19cbe84eb1cb8a631933ecea28cfdfaf495f734358b63bfb170ee5b654",
     "lib/types/utils/marked/options.d.ts": "045a24dbcd500bc31da8b5aee8bcc35a0301b7e1bdbc6830be457fa1975899d7",
     "lib/types/block/base/parent.d.ts": "f01119c6a93ce2618cac82acd3396fa413533519eaa053ead348f41ff0636d7f",
     "lib/types/utils/paste.d.ts": "2a5cf113bf4b5d18ed56df3334d364f6c7f689d6b74605ca7b784ff93ab3529d",
-    "lib/types/inlineRenderer/renderer/referenceDefinition.d.ts": "46999ca449300055a4386ccb5d3153c170fc7dc07faae59bbdb4e5067f98f599",
-    "lib/types/inlineRenderer/renderer/referenceImage.d.ts": "6897cc46c7def186c428f851c0cae39192718b15370a5557129fd14f9edaa479",
+    "lib/types/inlineRenderer/renderer/referenceDefinition.d.ts": "6d0ccd49fb8708ff5fad9c0d6cc8c81f0be573223ab7b86595c521f88c28318f",
+    "lib/types/inlineRenderer/renderer/referenceImage.d.ts": "07f85d8547a3c32599b337f943fd4663e1a672c99745364afa5f3dfaaa13c638",
     "lib/types/inlineRenderer/renderer/referenceLink.d.ts": "a3ecb0ba4e6eb1afa2ff1ec657ed60094fa933e83c3cf5f1339c7589c8470508",
     "lib/types/state/__tests__/referenceLink.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/block/gfm/table/__tests__/removeRowColumn.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
@@ -634,21 +812,21 @@
     "lib/types/block/gfm/table/row.d.ts": "9a7be34529040dbfa02a95e1304f2fc719cc91af50a2fe229d46cb4d6926222a",
     "lib/types/inlineRenderer/rules.d.ts": "85b88ae0c6435bf1e8d97fe64876d6c1a34406c690dc291df9417b0e79ae6afb",
     "lib/types/utils/__tests__/sanitizeHyperlink.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/utils/search.d.ts": "a2b119c8b15b9f9ddf229ea8983116a006894bed59e2ae17894264ce285b3350",
+    "lib/types/utils/search.d.ts": "f6a879a9a0e858f94dba425bdbdc56fe14e9dc07fcaf15b9850664ac32a8e29b",
     "lib/types/utils/__tests__/search.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/utils/slug.d.ts": "a035a4b988981cabe2f8b64826581548d0a2193de74de1e7506596fe1f318728",
     "lib/types/utils/snabbdom.d.ts": "76bdd73041865f7630e019c58268b41a65e0f3ab0e53c130ec7d8a8a077ac637",
-    "lib/types/inlineRenderer/renderer/softLineBreak.d.ts": "ff0d08cd523316c5f50ad65434b8476d3da8a2733cd4c0797833b4c2e14bb6f6",
+    "lib/types/inlineRenderer/renderer/softLineBreak.d.ts": "db3b06cab54358ad85101437ad10f34f59dc2a5b0725c056af3ef3e8441809e6",
     "lib/types/state/stateToMarkdown.d.ts": "a0006baf8ffe88da24d834824d1e7ef4fb46b8ac1c8906ed761217b761db8c82",
     "lib/types/state/__tests__/stateToMarkdown.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-    "lib/types/inlineRenderer/renderer/strong.d.ts": "1494b979f9ef127d98ddb77d53a3d482b4f2c845fb379d57611a2cdb0f2c3c0e",
-    "lib/types/inlineRenderer/renderer/superSubScript.d.ts": "d85819042bfd1012e50bb6cf6a12c86332f4cb025ecaa1a6f825a3b04f77923a",
-    "lib/types/utils/marked/extensions/superSubscript.d.ts": "d9a91912fd8485cf207d737d3fef47a9c23393f2e7317feb1338e69bee874085",
+    "lib/types/inlineRenderer/renderer/strong.d.ts": "52b063bd4958eca9d8cd3d5bbec5546292b3f0ded89ed97f763ea6af0beb9f50",
+    "lib/types/inlineRenderer/renderer/superSubScript.d.ts": "f6951fb1eaac56642d3d169f2dbc90baff072c4e89a5317665d5fe78cb1de561",
+    "lib/types/utils/marked/extensions/superSubscript.d.ts": "ace3531ff0f103021f64a0cad5a7fa36244cf662f3949189c860ae39ec3a83da",
     "lib/types/block/content/codeBlockContent/__tests__/tabHandler.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/block/content/tableCell/__tests__/tabHandler.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/block/gfm/table/table.d.ts": "a9acf02667f2231913895c4c397ffb115bd401e927c4d0405b2ae5e710c78f1e",
     "lib/types/inlineRenderer/renderer/tailHeader.d.ts": "a66953a45afd95198a9735dd40a7803c5ccb1fb660a27ab06f88ad0b15a85291",
-    "lib/types/inlineRenderer/renderer/text.d.ts": "229952bca02702fc31b669e3ce8e79f620c4e24cd2eb53596e6fe17d60998754",
+    "lib/types/inlineRenderer/renderer/text.d.ts": "7b3e21cd1a48ecedaa29675be1f9c5bdad4bcb0e6e521d5d6f921333194ad218",
     "lib/types/block/base/treeNode.d.ts": "786ecc64bacbdab48bc1ce740823983055c730344baa5d78402b9fc6f1254fba",
     "lib/types/block/types.d.ts": "fffdda0c12fbfa95998a9713322c785dd3acdd30cfefade50d703b6e3979c701",
     "lib/types/event/types.d.ts": "c6713e6effd2003b10a373d0caf015c4af99a08ea446057d36e0a52756cce546",

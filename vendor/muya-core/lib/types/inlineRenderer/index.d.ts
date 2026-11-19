@@ -1,3 +1,4 @@
+import type { Token as MuyaTypeImport0 } from './types';
 import { default as Format } from '../block/base/format';
 import { default as ParagraphContent } from '../block/content/paragraphContent';
 import { Muya } from '../muya';
@@ -10,7 +11,7 @@ declare class InlineRenderer {
     labels: Labels;
     renderer: Renderer;
     constructor(muya: Muya);
-    tokenizer(block: Format, highlights: IHighlight[]): import('./types').Token[];
+    tokenizer(block: Format, highlights: IHighlight[]): MuyaTypeImport0[];
     patch(block: Format, cursor?: ICursor, highlights?: IHighlight[]): void;
     collectReferenceDefinitions(): void;
     getLabelInfo(blockOrState: ParagraphContent | IParagraphState): {

@@ -13,6 +13,12 @@ Next bundles reviewed Mermaid 11.16.1 and KaTeX 0.18.2 instead of stale copies.
 No original registry renderer chunks are copied. Two source imports use the
 new KaTeX `contrib/mhchem` export, ensuring chemistry registers on the same ESM
 or CJS renderer instance. All other upstream source bytes are preserved.
+The pinned syntax parser rejects two valid declaration forms: inline type-import
+queries and anonymous default signatures with object return types. Thirty-five
+declaration files use equivalent named type imports or a named local default
+declaration. Original hashes and reversible alias evidence are recorded; no
+callable parameter/return type or runtime source changes for this compatibility
+normalization. The existing syntax gate remains enabled.
 The workspace also shares the application's Marked 18 renderer, aligning the
 `marked-highlight` peer type/runtime with its declared supported `<19` range;
 strict checks and Markdown browser roundtrips validate this compatibility.

@@ -1,3 +1,6 @@
+import type { Nullable as MuyaTypeImport0 } from '../../../types';
+import type MuyaTypeImport1 from '../../commonMark/codeBlock';
+import type MuyaTypeImport2 from '../../base/parent';
 import { Muya } from '../../../muya';
 import { ICursor } from '../../../selection/types';
 import { CodeContentState } from '../../../state/types';
@@ -12,10 +15,10 @@ declare class CodeBlockContent extends Content {
     /**
      * Always be the `pre` element
      */
-    get codeContainer(): import('../../../types').Nullable<import('../../commonMark/codeBlock').default>;
-    get outContainer(): void | import('../../base/parent').default | null;
+    get codeContainer(): MuyaTypeImport0<MuyaTypeImport1>;
+    get outContainer(): void | MuyaTypeImport2 | null;
     constructor(muya: Muya, state: CodeContentState);
-    getAnchor(): void | import('../../base/parent').default | null;
+    getAnchor(): void | MuyaTypeImport2 | null;
     updatePreviewIfHave(text: string): void;
     update(_cursor: ICursor, highlights?: never[]): void;
     private _lastLineCount;

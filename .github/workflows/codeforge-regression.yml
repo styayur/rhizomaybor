@@ -58,7 +58,7 @@ jobs:
             --fail-on new \
             --sarif codeforge.sarif \
             --new-only \
-            --json > codeforge-result.json
+            --json > "$RUNNER_TEMP/codeforge-result.json"
 
       - name: Upload CodeForge SARIF
         if: always()
@@ -67,5 +67,5 @@ jobs:
           name: codeforge-sarif
           path: |
             codeforge.sarif
-            codeforge-result.json
+            ${{ runner.temp }}/codeforge-result.json
           if-no-files-found: ignore
