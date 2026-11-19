@@ -11,12 +11,18 @@ permissions:
 
 jobs:
   optimized-regression:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: sudo apt-get update && sudo apt-get install -y libglib2.0-dev
+      - name: Ensure native GLib development tools
+        run: |
+          if ! pkg-config --exists glib-2.0 gobject-2.0 gio-2.0; then
+            sudo apt-get -o Acquire::Retries=3 update
+            sudo apt-get -o Acquire::Retries=3 install -y libglib2.0-dev
+          fi
+          pkg-config --modversion glib-2.0 gobject-2.0 gio-2.0
       - name: Verify vendored source identity
         run: python3 security/verify_glib_backport.py
       - name: Optimized pointer and iterator regression
