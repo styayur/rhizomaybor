@@ -10,7 +10,8 @@ Rhizomaybor therefore does not embed the MarkText desktop application. It uses M
 
 - `@muyajs/core` is loaded dynamically only when visual Markdown/MDX editing starts.
 - The project still stores the original Markdown/MDX string.
-- Pending edits are flushed before reading `getMarkdown()`.
+- Applied Muya JSON changes are serialized with the actual `getMarkdown()` API.
+- The autosaved indicator refers to the current project revision, not a previously saved edit.
 - Source and isolated preview modes remain available.
 - Muya failures show a fallback notice and do not modify the document.
 
@@ -37,3 +38,17 @@ Unknown elements and attributes are analyzed and reported. The document’s `for
 ## Limitations
 
 Muya’s own documentation notes that its API may change between minor versions. Rhizomaybor pins a compatible version and covers visual startup, source preservation and preview mode with Playwright. A future Muya upgrade requires rerunning those tests and reviewing release notes.
+
+## Web image paths
+
+The Markdown editor resolves `/garden-assets/leaf.svg` beneath the deployed app
+root, including `/rhizomaybor/` on GitHub Pages. Relative image URLs are based on
+the current document's published URL, rather than the `/editor/` route. Inline
+and reference images follow the same rule; switching to source mode retains the
+original Markdown paths. Existing app-prefixed URLs are not prefixed twice.
+
+HTTP(S) URLs and base64 image data are supported. OS drive paths, UNC shares,
+`file:`, executable protocols, credentials and relative paths escaping the app
+root are not loaded. A desktop project does not grant arbitrary filesystem
+access to image content. Use project/public web assets or supported image data
+instead of expecting a browser to read a local absolute path.

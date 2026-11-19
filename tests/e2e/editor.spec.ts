@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { test, expect } from '@playwright/test';
 
 function find7z() {
@@ -9,6 +10,17 @@ function find7z() {
     try { execFileSync(candidate, ['i'], { stdio: 'pipe' }); return candidate; } catch { /* next */ }
   }
   throw new Error('An independent 7z-compatible extractor is required.');
+}
+
+function verifyReadmeArchive(archivePath: string, mode: 'project' | 'website', receiptPath: string) {
+  const npmCli = process.env.npm_execpath;
+  if (!npmCli || !path.isAbsolute(npmCli)) throw new Error('Run this workflow through npm run test:e2e.');
+  const output = execFileSync(process.execPath, [npmCli, 'run', 'verify:7z', '--', archivePath, mode], { encoding: 'utf8' });
+  expect(output).toContain('7z round-trip passed:');
+  const bytes = fs.readFileSync(archivePath);
+  const receipt = { command: `npm run verify:7z -- ${path.basename(archivePath)} ${mode}`, mode, archive: path.basename(archivePath), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex'), passed: true, fixture: 'Committed fictional demo project only' };
+  fs.writeFileSync(receiptPath, JSON.stringify(receipt, null, 2) + '\n');
+  console.log(`README verify:7z passed: ${receipt.command}`);
 }
 
 async function waitForServer(url: string) {
@@ -79,6 +91,7 @@ test('create, edit HTML, change layout, drag, undo, save, export 7z, rebuild and
   const archivePath = testInfo.outputPath(archiveDownload.suggestedFilename());
   await archiveDownload.saveAs(archivePath);
   expect([...fs.readFileSync(archivePath).subarray(0, 6)]).toEqual([0x37, 0x7a, 0xbc, 0xaf, 0x27, 0x1c]);
+  verifyReadmeArchive(archivePath, 'project', testInfo.outputPath('readme-verify-project.json'));
 
   const extractedDirectory = testInfo.outputPath('extracted-project');
   fs.mkdirSync(extractedDirectory, { recursive: true });
@@ -111,6 +124,7 @@ test('create, edit HTML, change layout, drag, undo, save, export 7z, rebuild and
   const websiteDownload = await websiteDownloadPromise;
   const websiteArchivePath = testInfo.outputPath(websiteDownload.suggestedFilename());
   await websiteDownload.saveAs(websiteArchivePath);
+  verifyReadmeArchive(websiteArchivePath, 'website', testInfo.outputPath('readme-verify-website.json'));
   const websiteExtraction = testInfo.outputPath('website-extracted');
   fs.mkdirSync(websiteExtraction, { recursive: true });
   execFileSync(find7z(), ['x', websiteArchivePath, `-o${websiteExtraction}`, '-y'], { stdio: 'pipe' });

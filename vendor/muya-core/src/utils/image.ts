@@ -2,6 +2,8 @@ import type { ImageToken } from '../inlineRenderer/types';
 import { isWin } from '../config/index';
 import { tokenizer } from '../inlineRenderer/lexer';
 import { findContentDOM, getOffsetOfParagraph } from '../selection/dom';
+import type { ImageSourceContext } from './imageSource';
+import { resolveImageSource } from './imageSource';
 
 export interface IImageInfo {
     token: ImageToken;
@@ -25,50 +27,8 @@ export function getImageInfo(image: HTMLElement): IImageInfo {
     };
 }
 
-export function getImageSrc(src: string) {
-    const EXT_REG = /\.(?:jpeg|jpg|png|gif|svg|webp)(?=\?|$)/i;
-    // http[s] (domain or IPv4 or localhost or IPv6) [port] /not-white-space
-    const URL_REG
-        = /^https?:\/\/(?:[\w\-.~]+\.[a-z]{2,}|[0-9.]+|localhost|\[[a-f0-9.:]+\])(?::\d{1,5})?\/\S+/i;
-    const DATA_URL_REG
-        = /^data:image\/[\w+-]+(?:;[\w-]+=[\w-]+|;base64)*,[a-zA-Z0-9+/]+={0,2}$/;
-    const imageExtension = EXT_REG.test(src);
-    const isUrl = URL_REG.test(src);
-    if (imageExtension) {
-        if (isUrl) {
-            return {
-                isUnknownType: false,
-                src,
-            };
-        }
-        else {
-            return {
-                isUnknownType: false,
-                src: `file://${src}`,
-            };
-        }
-    }
-    else if (isUrl && !imageExtension) {
-        return {
-            isUnknownType: true,
-            src,
-        };
-    }
-    else {
-        const isDataUrl = DATA_URL_REG.test(src);
-        if (isDataUrl) {
-            return {
-                isUnknownType: false,
-                src,
-            };
-        }
-        else {
-            return {
-                isUnknownType: false,
-                src: '',
-            };
-        }
-    }
+export function getImageSrc(src: string, context: ImageSourceContext = {}) {
+    return resolveImageSource(src, context);
 }
 
 export async function loadImage(url: string, detectContentType = false): Promise<{
@@ -76,6 +36,8 @@ export async function loadImage(url: string, detectContentType = false): Promise
     width: number;
     height: number;
 }> {
+    if (!resolveImageSource(url).src)
+        return Promise.reject(new Error('Unsupported image URL'));
     if (detectContentType) {
         const isImage = await checkImageContentType(url);
         if (!isImage)

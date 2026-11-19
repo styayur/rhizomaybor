@@ -31,7 +31,7 @@ export default function image(
     this: Renderer,
     { h, block, token }: ISyntaxRenderOptions & { token: ImageToken },
 ) {
-    const imageSrc = getImageSrc(token.attrs.src);
+    const imageSrc = getImageSrc(token.attrs.src, this.muya.options);
     const { selectedImage } = this.muya.editor.selection;
     const { i18n } = this.muya;
     const data = {
@@ -166,6 +166,9 @@ export default function image(
                     title,
                 },
             };
+
+            if (!width && !height && naturalWidth && naturalHeight)
+                Object.assign(data.props, { width: naturalWidth, height: naturalHeight });
 
             if (typeof width === 'string' && width)
                 Object.assign(data.props, { width });

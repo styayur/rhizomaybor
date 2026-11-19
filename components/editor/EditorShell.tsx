@@ -8,7 +8,7 @@ import { generateId, COMPONENT_BY_TYPE, createSection } from '@/lib/project/regi
 import { importProjectJson, serializeProject, downloadText } from '@/lib/project/project-io';
 import { readRecovery, writeRecovery, clearRecovery, type RecoveryRecord } from '@/lib/project/autosave';
 import { sanitizeBrowserHtml } from '@/lib/project/html-browser';
-import { renderHtmlShell, renderPage } from '@/lib/project/render-site';
+import { documentHref, renderHtmlShell, renderPage } from '@/lib/project/render-site';
 import { analyzeHtml } from '@/lib/project/html-policy';
 import { createExportPlan } from '@/lib/project/export';
 import type { EditorSelection, PreviewDevice } from '@/lib/project/editor-types';
@@ -40,10 +40,17 @@ export function EditorShell() {
   const [contentTarget, setContentTarget] = useState<ContentTarget | null>(null);
   const [recovery, setRecovery] = useState<RecoveryRecord | null>(null);
   const [showExport, setShowExport] = useState(false);
-  const [autosavedAt, setAutosavedAt] = useState<string | null>(null);
+  const [autosave, setAutosave] = useState<{ project: SiteProject; time: string } | null>(null);
   const [desktopRoot, setDesktopRoot] = useState<string | null>(null);
   const importInput = useRef<HTMLInputElement>(null);
   const dirty = isDirty(state);
+  const autosavedAt = autosave?.project === state.project ? autosave.time : null;
+  const imageDocument = contentTarget?.kind === 'document'
+    ? state.project.contentDocuments.find((document) => document.id === contentTarget.documentId)
+    : undefined;
+  const imageDocumentPath = imageDocument
+    ? documentHref({ ...state.project, config: { ...state.project.config, basePath: '' } }, imageDocument)
+    : state.project.pages.find((page) => page.id === pageId)?.slug ?? '/';
 
   useEffect(() => {
     try {
@@ -65,7 +72,7 @@ export function EditorShell() {
     const timeout = window.setTimeout(() => {
       try {
         writeRecovery(localStorage, state.project, state.baseline);
-        setAutosavedAt(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        setAutosave({ project: state.project, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) });
       } catch {
         // Autosave failure is surfaced by the save button continuing to work.
       }
@@ -314,7 +321,7 @@ export function EditorShell() {
         <Inspector project={state.project} baseline={state.baseline} selection={selection} onSelect={setSelection} onComponentProperty={(sectionId, componentId, key, value) => dispatch({ type: 'update-project', label: `updated ${key}`, updater: (project) => updateComponentProperty(project, pageId, sectionId, componentId, key, value) })} onComponentSettings={(sectionId, componentId, patch) => dispatch({ type: 'update-project', label: 'updated component settings', updater: (project) => updateComponentSettings(project, pageId, sectionId, componentId, patch) })} onSection={(sectionId, patch) => dispatch({ type: 'update-project', label: 'updated section', updater: (project) => updateSection(project, pageId, sectionId, patch) })} onPage={(id, patch) => dispatch({ type: 'update-project', label: 'updated page', updater: (project) => updatePage(project, id, patch) })} onNavigation={(id, patch) => dispatch({ type: 'update-project', label: 'updated navigation', updater: (project) => ({ ...project, navigation: { ...project.navigation, items: project.navigation.items.map((item) => item.id === id ? { ...item, ...patch } : item) } }) })} onTheme={(patch: ThemePatch) => dispatch({ type: 'update-project', label: 'updated theme', updater: (project) => updateTheme(project, patch) })} onDeleteComponent={(sectionId, componentId) => { replaceWithHistory(removeComponent(state.project, pageId, sectionId, componentId), 'removed component'); setSelection({ kind: 'section', pageId, sectionId }); }} onDeleteSection={(sectionId) => { replaceWithHistory(removeSection(state.project, pageId, sectionId), 'removed section'); setSelection({ kind: 'page', pageId }); }} onOpenContent={openComponentContent} />
       </div>
 
-      {contentTarget && <ContentEditor title={contentTarget.title} format={contentTarget.format} initialValue={contentTarget.initialValue} onApply={applyContent} onClose={() => setContentTarget(null)} />}
+      {contentTarget && <ContentEditor title={contentTarget.title} format={contentTarget.format} initialValue={contentTarget.initialValue} imageDocumentPath={imageDocumentPath} onApply={applyContent} onClose={() => setContentTarget(null)} />}
       {showExport && <ExportDialog project={state.project} onClose={() => setShowExport(false)} onExported={notify} />}
       {recovery && <div className="fixed inset-x-0 top-16 z-[80] mx-auto flex max-w-2xl items-center gap-3 rounded-xl border border-amber-400/30 bg-[#1a1710] px-4 py-3 shadow-xl"><div><p className="text-sm text-amber-100">Recovered unsaved edits from {new Date(recovery.savedAt).toLocaleString()}</p><p className="mt-0.5 text-[11px] text-amber-200/70">The recovery record differs from the built-in demo project.</p></div><button type="button" className="ml-auto rounded border border-amber-400/30 px-3 py-1.5 text-xs text-amber-200" onClick={() => { dispatch({ type: 'replace', project: recovery.project, label: 'recovered autosave' }); setPageId(recovery.project.pages[0].id); setRecovery(null); }}>Restore</button><button type="button" className="rounded border border-line px-3 py-1.5 text-xs text-muted" onClick={() => { clearRecovery(localStorage); setRecovery(null); }}>Discard</button></div>}
       {toast && <div className={cn('fixed bottom-5 left-1/2 z-[120] -translate-x-1/2 rounded-lg border px-4 py-2 text-xs shadow-xl', toast.tone === 'error' ? 'border-red-400/30 bg-[#1d1012] text-red-200' : 'border-accent/30 bg-[#17150e] text-amber-100')}>{toast.message}</div>}

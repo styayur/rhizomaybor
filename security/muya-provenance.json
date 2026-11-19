@@ -202,6 +202,33 @@
       "originalSha256": {
         "src/utils/prism/loadLanguage.ts": "04f505576a6db04a5d22e0ac24f5925995decb83418e284f834c802c2f59bbad"
       }
+    },
+    {
+      "files": [
+        "src/types.ts",
+        "lib/types/types.d.ts",
+        "src/utils/image.ts",
+        "lib/types/utils/image.d.ts",
+        "src/inlineRenderer/renderer/image.ts",
+        "src/inlineRenderer/renderer/referenceImage.ts",
+        "src/utils/imageSource.ts",
+        "lib/types/utils/imageSource.d.ts",
+        "src/inlineRenderer/renderer/loadImageAsync.ts"
+      ],
+      "reason": "Resolve inline/reference image display URLs using explicit web app-root and current-document context. Preserve Markdown source; reject filesystem paths, credentials, unsafe schemes, protocol-relative ambiguities and app-root traversal. No arbitrary file access is introduced. Keep decoded intrinsic image dimensions for visible first/cached SVG renders.",
+      "originalSha256": {
+        "src/types.ts": "1157701b42d968890b2e2564352f3fa930b5d22c7822ef1c16679c69135963e7",
+        "lib/types/types.d.ts": "47c572c6f3e5c9df85138f2ea3fc84b5d9b18b65859a77cf801a34df643f0e4b",
+        "src/utils/image.ts": "737d6253606d03f00905890d3a989e4defde638a3998edf3bc06e7f83fc8380b",
+        "lib/types/utils/image.d.ts": "cedff523de51b9a7e7f3131b86a3920b486ae9e8430f0dc61e02365054254261",
+        "src/inlineRenderer/renderer/image.ts": "94edc324d158e4b37840555609a9dc0b236e9e5e2fa8fec8e69401c9fdd47a96",
+        "src/inlineRenderer/renderer/referenceImage.ts": "39b74760f27b175048b003dd509d51e4d00826dda6301816848e6948bb56dcad",
+        "src/inlineRenderer/renderer/loadImageAsync.ts": "ecccfd817b07312d2ff29088a04f1b558aecc6c91afdf27f75f820bbdb3c3057"
+      },
+      "addedFiles": [
+        "src/utils/imageSource.ts",
+        "lib/types/utils/imageSource.d.ts"
+      ]
     }
   ],
   "manifestChanges": [
@@ -480,15 +507,15 @@
     "src/inlineRenderer/renderer/htmlEscape.ts": "d50111f8ac143df253274dbe921c228bfcbde0413e696a7a25dad84ad8c8367a",
     "src/inlineRenderer/renderer/htmlRuby.ts": "c126de707913fe23a5211af15b38ec9d7def6d63a40800652ed71b0bb366cf3d",
     "src/inlineRenderer/renderer/htmlTag.ts": "68d1ee67b110e7561e43e479324574be0f0ba9286d62f412b8ac126e660b5404",
-    "src/inlineRenderer/renderer/image.ts": "94edc324d158e4b37840555609a9dc0b236e9e5e2fa8fec8e69401c9fdd47a96",
+    "src/inlineRenderer/renderer/image.ts": "5281ebc7cfef72c31c947a4c6606c0c5744f065313d665b53fa130fd16df50a1",
     "src/inlineRenderer/renderer/index.ts": "bb57d2e566127c73ccc343a6a354e0af3d17f340c1a89a8f16b535cfdf63136c",
     "src/inlineRenderer/renderer/inlineCode.ts": "ae3c800882e0f55d79208a58b230d9d7ad230566899f3f3f16c18ed128d8cade",
     "src/inlineRenderer/renderer/inlineMath.ts": "848091c2812403277bf5f7d85fdb68f565f33d90f7a6af8a484672c993e24cf0",
     "src/inlineRenderer/renderer/link.ts": "7de8bd0a76818a37acc09f0216cd31a577bc42825cb5d9e9fde025823bbc887f",
-    "src/inlineRenderer/renderer/loadImageAsync.ts": "ecccfd817b07312d2ff29088a04f1b558aecc6c91afdf27f75f820bbdb3c3057",
+    "src/inlineRenderer/renderer/loadImageAsync.ts": "6edd047a1b3488a060b9cf005a3f0cf853a268ae095d84c61064873fa03f22a4",
     "src/inlineRenderer/renderer/multipleMath.ts": "48fd84761845c51774e8459fa29a36846f1d31a4e86f173e7c4c6bcfe3ccfcef",
     "src/inlineRenderer/renderer/referenceDefinition.ts": "023c2dea3e53890662d11899cdcdbcceab44d5d4565c0a5c634d2415e20fc2fc",
-    "src/inlineRenderer/renderer/referenceImage.ts": "39b74760f27b175048b003dd509d51e4d00826dda6301816848e6948bb56dcad",
+    "src/inlineRenderer/renderer/referenceImage.ts": "50fd7512f0dd81766091616b74a459d1eef8a17b49514b59b4e993cb96b91ec2",
     "src/inlineRenderer/renderer/referenceLink.ts": "de0cf1dade69f8d7d64bd767faddec7a9862902df30e30e0b9b3fb540a5311f0",
     "src/inlineRenderer/renderer/softLineBreak.ts": "ff7364413dbe37fda78080bf2df612c65df89678d49498b105014ee9c791bd9e",
     "src/inlineRenderer/renderer/strong.ts": "21d63240118066bed6d96d643f7c07a5c918cebe4a42a80c9727eef5132be0eb",
@@ -525,7 +552,7 @@
     "src/state/renderToStaticHTML.ts": "265f57a7b0b0061a9d34b1245c22b534c95e24a51f8f04096b7df0430a76fb80",
     "src/state/stateToMarkdown.ts": "d21b370be62c6b024966f4179e93353e50f041e33517caf1af873439d61742b4",
     "src/state/types.ts": "80e82aa92f099c555e02977f05c36079e4f6c689a445d7a685f2a6b50611d89e",
-    "src/types.ts": "1157701b42d968890b2e2564352f3fa930b5d22c7822ef1c16679c69135963e7",
+    "src/types.ts": "6387230fc1e7ddd51a2e337967fc5cde1d757979fbbc250f3af1e494559cc72b",
     "src/types/global.d.ts": "ae7dd0e3f168b47ec8bb40a5b59f15ba9fb123885e17ad077396da24607d0be1",
     "src/types/index.d.ts": "f1bff9795464d3d6a2d79606654cef3a1b918848c489883b3711bf92b16cc50d",
     "src/ui/baseFloat/index.css": "fd28ab4620514a726021205d78c13e55f481cefe3992320a66b7f3a541231a69",
@@ -600,7 +627,7 @@
     "src/utils/emoji.ts": "af0b49697cb814f7c64396a8b091d2a46d20bddbe95b0779df2cd3fd8ea75b3b",
     "src/utils/getLinkInfo.ts": "2dfdc145617802dfba1b1563a7e382f6d82c0ca0bb2edf72f9a6a2185685e02f",
     "src/utils/highlightHTML.ts": "120ee54cebc4ebb4e48baebbe07161c093a2760c4759f561f1890b1468576e2b",
-    "src/utils/image.ts": "737d6253606d03f00905890d3a989e4defde638a3998edf3bc06e7f83fc8380b",
+    "src/utils/image.ts": "42e9b559d7ebe52f2fbfced9e9c533d5fe6a14cbf4847443d9dd19c2f2fd619f",
     "src/utils/index.ts": "6af8ebf194099cd33f48c4eeabe8e6b4620a3aad9d3079d97dc598dabaa2f88c",
     "src/utils/logger.ts": "828082846c04dffa7a43a1fddeec565e17be1cb6d1353596e9d7d8b421990e60",
     "src/utils/marked/compatibleTaskList.ts": "063dadbc43ae26412dfbde55d4890c00ae41fe9c3f4ef8b2c463847fb601ea10",
@@ -711,7 +738,7 @@
     "lib/types/inlineRenderer/renderer/htmlTag.d.ts": "0e24607a669165ed7a8ef48c4ad0cab30ecaa5397a3d76fb3db21154aff99c38",
     "lib/types/state/htmlToMarkdown.d.ts": "cc43f4dfdfba2d59a64a9588ea0860b191e7ec2bd63caf7d2824e39841311042",
     "lib/types/inlineRenderer/renderer/image.d.ts": "5ea0e96b37edd77bc0d74a163956396a1fe7d8cbf25a3731d88a0b2690b1d58e",
-    "lib/types/utils/image.d.ts": "cedff523de51b9a7e7f3131b86a3920b486ae9e8430f0dc61e02365054254261",
+    "lib/types/utils/image.d.ts": "64afd3e27e78fb2341d627a0af04cceec718baeb2abee1122ed2dddf65f06926",
     "lib/types/inlineRenderer/renderer/__tests__/image.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
     "lib/types/selection/imageDisplay.d.ts": "0c61baa16f30bf1c91596ed72ef4af33f709f19712efc7e4f5cc7b60580640b9",
     "lib/types/selection/__tests__/imageDisplay.spec.d.ts": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
@@ -844,7 +871,7 @@
     "lib/types/search/types.d.ts": "36d85c38718fabedff982732da0bd18b843f6ab5771484db1b9c7bede99aaa6d",
     "lib/types/selection/types.d.ts": "456a9ebe92f4923b25ead15c25834f4ab8591e09fa4aa3b66a4962204f1e5013",
     "lib/types/state/types.d.ts": "ff2f0b0dd1a517759c8e7060ab1ccd11980ea57013af651144ab13fb38eb5506",
-    "lib/types/types.d.ts": "47c572c6f3e5c9df85138f2ea3fc84b5d9b18b65859a77cf801a34df643f0e4b",
+    "lib/types/types.d.ts": "0daa4536329adad280fb1ad3dfb31e782d8c2d289d49672528c34569993659d7",
     "lib/types/ui/types.d.ts": "9717e76564158e78a1726d4fc4247ef93ddd618098dfaeff4c90eae0054d09e3",
     "lib/types/utils/marked/types.d.ts": "afdad836ab8c272f678b4f13a68dbc2273b3a53eab12d39d320541d062effaef",
     "lib/types/utils/types.d.ts": "feb2a90ea4b2dde7df5d239b221d1d33f6aa38bc6a988eb116e4ccd1ac424ef3",
@@ -854,6 +881,8 @@
     "lib/types/utils/marked/utils.d.ts": "b88bbba83602a105763630ef519da21e23892b9285ea1150b702be76430d2056",
     "lib/types/utils/prism/walkToken.d.ts": "aeeae2dc650eacaf8e0f225ea463fc85389fb52ca15bbb32448c39b0836cdb32",
     "lib/types/utils/marked/walkTokens.d.ts": "62a6084484f574c4384ea76ead3e82395ca530d7666cb575f6d3164322951e8b",
-    "lib/types/locales/zh.d.ts": "546095257a53e47670aa189a0b3a7e88f052b1d4bcc46edd66b4b4d1ec3ea6d0"
+    "lib/types/locales/zh.d.ts": "546095257a53e47670aa189a0b3a7e88f052b1d4bcc46edd66b4b4d1ec3ea6d0",
+    "src/utils/imageSource.ts": "ebe5b5961ec37dbaa5cc94183b91aafdeef6d2fa6b3c5f3493d4c4a1b829769b",
+    "lib/types/utils/imageSource.d.ts": "57b6927967e27a71b8f0f383bffc81109af2cbca9979b1a6bff51b80ea001dc7"
   }
 }

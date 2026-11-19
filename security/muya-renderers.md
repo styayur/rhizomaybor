@@ -12,7 +12,7 @@ hashes and emits ESM/CJS with installed JavaScript dependencies external, so
 Next bundles reviewed Mermaid 11.16.1 and KaTeX 0.18.2 instead of stale copies.
 No original registry renderer chunks are copied. Two source imports use the
 new KaTeX `contrib/mhchem` export, ensuring chemistry registers on the same ESM
-or CJS renderer instance. The Prism loader modification is described below;
+or CJS renderer instance. The Prism loader and web image changes are described below;
 all other upstream source bytes are preserved.
 The pinned syntax parser rejects two valid declaration forms: inline type-import
 queries and anonymous default signatures with object return types. Thirty-five
@@ -34,6 +34,21 @@ sequentially in Prism's documented dependency order, including C before C++.
 The editor inherits the application's scoped text/background palette. Browser
 checks require highlighted C++, readable contrast, and no uncaught page errors
 alongside the renderer and source roundtrip checks.
+
+Inline and reference images share a context-aware web resolver instead of the
+upstream desktop-only conversion of every non-HTTP filename into `file://`.
+The host supplies its deployed app root and the current document's canonical
+published URL. Root-relative paths stay under the app root; document-relative
+paths use that document URL, with normalized traversal constrained to the app.
+Already-prefixed app URLs are not prefixed twice. Explicit HTTP(S) image origins
+and base64 image data retain their identity; credentials, ambiguous network
+paths, unsafe schemes and OS drive/UNC/file paths do not become loadable URLs.
+No arbitrary filesystem capability is introduced in either the web or Tauri
+host. Original Markdown URLs remain source data, including unsupported disk
+paths. The MIT local helper, declaration, interface additions and renderer
+call-site changes are inventoried with before/after source identities. Decoded
+intrinsic dimensions are retained for first and cached SVG renders, avoiding
+the zero-size layout of viewBox-only images inside inline wrappers.
 
 `npm ci` rebuilds this workspace automatically. Product type checking remains
 strict; upstream source is checked separately with its own unchanged strict
