@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import fs from 'node:fs';
 
 async function editVisualSource(page: import('@playwright/test').Page, source: string) {
   await page.getByTestId('content-mode-source').click();
@@ -32,6 +33,43 @@ test('rebuilt Muya renders math, chemistry and Mermaid and preserves edited sour
   expect(contrast).toBeGreaterThanOrEqual(4.5);
   await page.getByTestId('content-mode-source').click();
   await expect(page.getByTestId('content-source-editor')).toHaveValue(source);
+  expect(pageErrors).toEqual([]);
+});
+
+test('visual typing reaches source, applied project, autosave recovery and JSON download', async ({ page }, testInfo) => {
+  const pageErrors: string[] = [];
+  page.on('pageerror', error => pageErrors.push(error.message));
+  await page.goto('/editor/');
+  await page.getByTestId('left-content-tab').click();
+  await page.getByTestId('document-doc-post-building-a-garden').click();
+  await editVisualSource(page, '# Live editable heading\n\nSelf-authored acceptance fixture.\n');
+  const heading = page.locator('.marktext-editor h1');
+  await heading.click();
+  await page.keyboard.press('End');
+  const marker = ' Rhizo live editing verified';
+  await page.keyboard.insertText(marker);
+  await expect(heading.locator('.mu-plain-text')).toHaveText(`Live editable heading${marker}`);
+  await page.getByTestId('content-mode-source').click();
+  const sourceEditor = page.getByTestId('content-source-editor');
+  await expect(sourceEditor).toHaveValue(new RegExp(`# Live editable heading${marker}`));
+  const editedSource = await sourceEditor.inputValue();
+  await page.getByTestId('apply-content').click();
+  await expect(page.getByText(/autosaved/)).toBeVisible({ timeout: 10_000 });
+  await page.reload();
+  await expect(page.getByText(/Recovered unsaved edits/)).toBeVisible();
+  await page.getByRole('button', { name: 'Restore', exact: true }).click();
+  await page.getByTestId('left-content-tab').click();
+  await page.getByTestId('document-doc-post-building-a-garden').click();
+  await page.getByTestId('content-mode-source').click();
+  await expect(page.getByTestId('content-source-editor')).toHaveValue(editedSource);
+  await page.getByRole('button', { name: 'Cancel', exact: true }).click();
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByTestId('save-project').click();
+  const download = await downloadPromise;
+  const projectPath = testInfo.outputPath('visual-edited-project.json');
+  await download.saveAs(projectPath);
+  const project = JSON.parse(fs.readFileSync(projectPath, 'utf8'));
+  expect(JSON.stringify(project)).toContain(marker);
   expect(pageErrors).toEqual([]);
 });
 
