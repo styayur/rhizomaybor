@@ -57,12 +57,15 @@ jobs:
             --baseline .codeforge/baseline.json \
             --fail-on new \
             --sarif codeforge.sarif \
-            --new-only
+            --new-only \
+            --json > codeforge-result.json
 
       - name: Upload CodeForge SARIF
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: codeforge-sarif
-          path: codeforge.sarif
+          path: |
+            codeforge.sarif
+            codeforge-result.json
           if-no-files-found: ignore
