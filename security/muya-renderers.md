@@ -13,6 +13,12 @@ Next bundles reviewed Mermaid 11.16.1 and KaTeX 0.18.2 instead of stale copies.
 No original registry renderer chunks are copied. Two source imports use the
 new KaTeX `contrib/mhchem` export, ensuring chemistry registers on the same ESM
 or CJS renderer instance. All other upstream source bytes are preserved.
+The workspace also shares the application's Marked 18 renderer, aligning the
+`marked-highlight` peer type/runtime with its declared supported `<19` range;
+strict checks and Markdown browser roundtrips validate this compatibility.
+Fonts remain separate binary files using Vite's native no-inline asset query,
+instead of increasing CSS by megabytes of base64. The artifact secret scan is
+unchanged and continues checking all output.
 
 `npm ci` rebuilds this workspace automatically. Product type checking remains
 strict; upstream source is checked separately with its own unchanged strict

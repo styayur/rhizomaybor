@@ -20,7 +20,8 @@
   "manifestChanges": [
     "private local workspace 0.2.0-security.1",
     "KaTeX0.18.2 and Mermaid11.16.1",
-    "ESM/CJS compiled entrypoints with unchanged declaration payload"
+    "ESM/CJS compiled entrypoints with unchanged declaration payload",
+    "Use app-compatible Marked18.2.0 to align marked-highlight peer types; verify Markdown rendering/roundtrip in browser tests."
   ],
   "files": {
     "LICENSE": "184ea96a94d6ad98df17dbaa8adaba53bc2bb605bffc46d6f92bce0efa866b56",

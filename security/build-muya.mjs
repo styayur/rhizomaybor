@@ -19,7 +19,19 @@ const external = (id) => !id.endsWith('.css') && dependencies.some((name) => id 
 await build({
   configFile: false,
   root: vendor,
+  base: './',
   publicDir: false,
+  // As in upstream's build, keep fonts as real files. Inlining megabytes of
+  // binary font data into CSS also creates meaningless secret-pattern matches.
+  plugins: [{
+    name: 'muya-font-files',
+    enforce: 'pre',
+    transform(source, id) {
+      if (!id.endsWith('.css')) return null;
+      // Vite's documented no-inline suffix also applies to CSS url() assets.
+      return source.replace(/url\((['"]?)([^)'"\s]+\.(?:woff2?|ttf|otf))\1\)/g, 'url($1$2?no-inline$1)');
+    },
+  }],
   build: {
     target: 'chrome70',
     outDir: 'lib/generated',
