@@ -20,7 +20,6 @@ function verifyReadmeArchive(archivePath: string, mode: 'project' | 'website', r
   const bytes = fs.readFileSync(archivePath);
   const receipt = { command: `npm run verify:7z -- ${path.basename(archivePath)} ${mode}`, mode, archive: path.basename(archivePath), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex'), passed: true, fixture: 'Committed fictional demo project only' };
   fs.writeFileSync(receiptPath, JSON.stringify(receipt, null, 2) + '\n');
-  console.log(`README verify:7z passed: ${receipt.command}`);
 }
 
 async function waitForServer(url: string) {
