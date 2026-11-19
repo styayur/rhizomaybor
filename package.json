@@ -7,7 +7,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build-full.mjs",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p vendor/muya-core/tsconfig.json",
     "test": "node --test tests/*.test.mjs && vitest run",
     "content:validate": "node scripts/validate-content.mjs",
     "content:stage": "node scripts/stage-content.mjs",
@@ -30,7 +30,8 @@
     "desktop:dev": "tauri dev --config src-tauri/tauri.conf.json",
     "desktop:build": "tauri build --config src-tauri/tauri.conf.json",
     "desktop:test": "node scripts/prepare-desktop-test.mjs",
-    "desktop:icons": "tauri icon docs/assets/brand/logo-mark.svg -o src-tauri/icons"
+    "desktop:icons": "tauri icon docs/assets/brand/logo-mark.svg -o src-tauri/icons",
+    "postinstall": "node security/build-muya.mjs"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -40,7 +41,7 @@
     "@fontsource/inter": "^5.1.0",
     "@fontsource/jetbrains-mono": "^5.1.0",
     "@fontsource/source-serif-4": "^5.3.1",
-    "@muyajs/core": "^0.2.0",
+    "@muyajs/core": "file:vendor/muya-core",
     "@tailwindcss/typography": "^0.5.15",
     "@tauri-apps/api": "^2.12.4",
     "@tauri-apps/plugin-dialog": "^2.8.4",
@@ -75,7 +76,12 @@
     "tsx": "^4.23.15",
     "typescript": "^5.6.3",
     "vitest": "^4.1.12",
-    "wrangler": "^4.160.1"
+    "wrangler": "^4.160.1",
+    "vite": "^8.3.8",
+    "@types/katex": "^0.16.8",
+    "@types/plantuml-encoder": "^1.4.2",
+    "@types/prismjs": "^1.26.6",
+    "@types/turndown": "^5.0.4"
   },
   "license": "MPL-2.0",
   "repository": {
@@ -95,5 +101,14 @@
     "tauri",
     "7z"
   ],
-  "author": "Rhizomaybor contributors"
+  "author": "Rhizomaybor contributors",
+  "workspaces": [
+    "vendor/muya-core"
+  ],
+  "overrides": {
+    "mermaid": {
+      "katex": "0.18.2"
+    },
+    "postcss-selector-parser@^6.0.0": "6.1.5"
+  }
 }
