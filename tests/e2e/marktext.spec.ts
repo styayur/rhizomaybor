@@ -19,7 +19,7 @@ test('rebuilt Muya renders math, chemistry and Mermaid and preserves edited sour
   await expect(page.locator('.mu-math-preview .katex')).toBeVisible();
   await expect(page.locator('.mu-diagram-preview svg')).toBeVisible();
   await expect(page.locator('.mu-diagram-preview')).toContainText('Published');
-  await expect(page.locator('.marktext-editor .language-cpp .token.keyword').first()).toBeVisible();
+  await expect(page.locator('.mu-codeblock-content').filter({ hasText: 'int main()' }).locator('.token.keyword').first()).toBeVisible();
   const contrast = await page.locator('.marktext-editor').evaluate(editor => {
     const text = getComputedStyle(editor.querySelector('h1')!).color.match(/[\d.]+/g)!.map(Number);
     const background = getComputedStyle(editor.parentElement!).backgroundColor.match(/[\d.]+/g)!.map(Number);
