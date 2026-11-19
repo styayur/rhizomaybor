@@ -39,13 +39,13 @@ await build({
     lib: {
       entry: path.join(vendor, 'src/index.ts'),
       formats: ['es', 'cjs'],
-      fileName: (format) => format === 'es' ? 'es/index.js' : 'cjs/index.cjs',
+      fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs',
       cssFileName: 'core',
     },
     rollupOptions: { external },
   },
 });
-for (const relative of ['lib/generated/es/index.js', 'lib/generated/cjs/index.cjs']) {
+for (const relative of ['lib/generated/index.js', 'lib/generated/index.cjs']) {
   const source = fs.readFileSync(path.join(vendor, relative), 'utf8');
   if (/0\.16\.47|11\.15\.0|mermaid\.core-/.test(source)) throw new Error(`Bundled vulnerable renderer in ${relative}`);
   if (!source.includes('katex') || !source.includes('mermaid')) throw new Error(`Missing external renderer imports in ${relative}`);

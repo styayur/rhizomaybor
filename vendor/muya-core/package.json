@@ -31,14 +31,14 @@
   },
   "type": "module",
   "private": true,
-  "main": "./lib/generated/cjs/index.cjs",
-  "module": "./lib/generated/es/index.js",
+  "main": "./lib/generated/index.cjs",
+  "module": "./lib/generated/index.js",
   "types": "./lib/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./lib/types/index.d.ts",
-      "import": "./lib/generated/es/index.js",
-      "require": "./lib/generated/cjs/index.cjs"
+      "import": "./lib/generated/index.js",
+      "require": "./lib/generated/index.cjs"
     },
     "./lib/*": "./lib/*",
     "./lib/core.css": "./lib/generated/core.css"
